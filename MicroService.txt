@@ -1,0 +1,100 @@
+									~~~~~~~~~~## MicroService ##~~~~~~~~~~~~~~~~~							
+*MicroService is a service based architecture style, which is a combination of small microservices rather than a whole app.
+*Each microservices are independent to each others , they can use diffrent data base and even they can written in diffrent programming languages.
+*Instead of monolithic app microservice is the collection of small application which runs independently.
+*A big application can be deliver by preparing a small applications.
+#Container is the major features of MicroService which is a set of Software which is use to isolate the services.
+
+& Docker is software which is use to host the container.
+* Diffrent Types of Microservices:
+~~~~~~~~~# Examples of Microservices Frameworks for Java #~~~~~~~~~~~~~~~~~~~
+There are several microservices frameworks that you can use for developing for Java. Some of these are:
+*Spring Boot.
+*Jersey.
+*Swagger.
+APIGateWay
+						~~~~~~~~# ADVANTAGES of MicroService #~~~~~~	
+*MicroService provide facility to choose any programming languages for the developer.
+*Agility:Can addopt new chages very easily.
+*Due to small service it is easier for the developer to maintain the code and to understand. 
+				
+					~~~~~~~~DISADVANTAGES of MicroService~~~~~~
+*Due to large peice of small Application it is difficult to deploy, Complex communication is between the Applications. 
+*Communication btw the client and the microservice is possible but communication inside of the microservices create the dependency which will lower the performance of system.
+
+Synchronous and Asynchronous Communication:
+*In Asynchronous communication client made a request and wait for the response, it is just like HTTP communication but 
+In Synchronous combination client get the instant resonse with his request.
+
+3 Types of MicroServices: StateLess MicroServices:It does not maintain any state within the services across calls, 
+Data Centric MicroServices: 
+Aggregator MicroServices:
+
+						~~~~~~~~JWT(JSON Web Token)~~~~~~
+OAth 2.0 uses the JWT to authorization of the request.
+JWT has 3 main part (Header, PAyLoad and Signature),i.e: ereerrre.retr.wretryhj
+
+*JWT comes when the server established the connection and want to further connect. At that time JWT helps user for Authorization.
+
+*AUTHORIZATION: Refers to the process of determining if a user has proper permission to perform a particular action or read particular data, assuming that the user is successfully authenticated. 
+You can think of it as an answer to the question Can a user do/read this?.
+*ROLE: Refers to a group of permissions of the authenticated user.
+Link:https://ide.geeksforgeeks.org/30W3xJfl9a Link to create the OAth Application.
+
+~~~~~~~~~~~~~~~~Formate to call components internally~~~~~~~~~~~~~~~~~~
+~~~Inside the User Application Class~~~~~
+@Bean
+RestTemplate restTemplate(){ return new RestTemplate;} //Creating the Object of RestTemplate.
+
+~~~Inside the Contact Application Class~~~
+RestTemplate template=new RestTemplate();:-->Object creation in a particular MicroServices.
+template.postForObject(url:"",Object(Payment),Class_Var(payment).class);-->Payment payment
+Note:Here the Url will contains all information which is required to call second services., But we have to manually enter the URL if we are not usign the Eureka Server.
+
+Note: We have to make a diffrent MicroServices as an Eureka and then we will link the others inside the Eureka & client only hit the Eureka Service instead of hiting every service.
+*We have to make other services as EurekaClient (add dependency of EurekaClient).
+Eureka Server:Service Registery 
+Eureka Discovery Client: Dependency used to register the Spring Application on Eureka Server.
+@EnableEurekaServer:annotation used in the application class along with the @SpringBootApplication to enable the application on eureka server.
+@EnableEurekaClient:use to register the application on eureka Server.
+Port of Eureka Server is :8761  **ByDefault port**
+
+*APIGateWay: It handle the client request and internally it calls the required services. User dont have to call every services. "Spring Cloud Routing" dependency is use for that. Link for the APIGATEWAY Configuration: C:\Users\nitsu\Pictures\Screenshots.
+
+				~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ACTUATOR~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+It is a feature of Spring boot which helps to monitor the application health. Dependency Name: spring-boot-starter-Actuator. Link: http:\\localhost:8080\actuator. http:\\localhost:8080\actuator\health-->status:UP.
+We can use "Spring Data Rest HAL Browser" to check the health of application in diffrent manner.Application Link:localhost:8080 , Tutorial Link:https://www.javatpoint.com/restful-web-services-spring-boot-actuator
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+
+				~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~REST~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+URI:Uniform Resource Identifier, URL:Uniform Resorce Locator ->It is use to fetch the information from the location.
+REST is Statelessness: It means that the state of client is not maintained at the server. Statelessness is the disadvantage of REST. 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~## Virtusa Courses ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Sleuth: It is use to identify the error inside the which occur during application running.
+It contains SpanId & TraceId.  
+				~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Docker~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~4
+*Terms present inside the Docker:
+1>Docker Image: It is a templet to create docker container.
+2>Docker File: It is document which contains all the command through which the user can assemble an image.
+3>Docker Container: Running instance of docker image.
+
+Commands inside the docker:
+*docker pull ImageName // to pull the image from the docker hub.
+*docker run ImageName// to run the image
+*docker images // use to feth the all images inside the docker
+*docker pull ImageName:Version//
+*docker search//
+*docker stop docker_Id/DockerName.
+
+@@RestTemplate:Code Link: https://ide.geeksforgeeks.org/online-java-compiler/88dd0548-344b-4802-ba20-032bbba6cd52
+Artucle Link:
+
+AddressResponse addressResponse = restTemplate.getForObject("http://localhost:8081/address-service/address/{id}", AddressResponse.class, id);
+        employeeResponse.setAddressResponse(addressResponse);
+		
+		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~# Internal Microservices Communication #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+##3 ways of Internal Communication in Microservices:
+*RestTemplate-> restTemp.getForObject(uri:"http://8080", params);
+*OpenFeign 
+*WebClient
+

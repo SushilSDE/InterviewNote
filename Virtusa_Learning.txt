@@ -1,0 +1,13 @@
+							#~~~~~Virtusa Learing Program~~~~~~#
+Logger logger = LoggerFactory.getLogger(Class);
+logger.info("Printing the value>>"+var);
+logger.warm();
+
+#logging.file = logs/application.log -> This is use to store the Logging info into a file.
+*spring.starter.security dependecy is use to provide security to the application & spring.security.user.name=xxx, spring.security.user.password=xxx
+*Spring Batch: It is a bunch of Task. The task include Generating Reports, Copying Data, Tranferring Data.
+
+@CreationTimestamp
+private LocalDateTime createdTimeStamp; --> This is basically use to automatically assign the created date.
+@UpdateTimestamp
+private LocalDateTime lastupdated; --> It is basically use to update the recent time.

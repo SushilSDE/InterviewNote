@@ -1,0 +1,3 @@
+*If any variable is declared without (var,let etc) then that variable will be the global variable.
+*SetTimeOut(functName,Time_Duration);// The Argumented function will execute after the passing of duration.
+*Promises:

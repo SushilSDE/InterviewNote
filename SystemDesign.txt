@@ -1,0 +1,50 @@
+*Advantages of Monolithic:Even a fresher can work on this Architecture, No required Network calls, comparatively easy to secure,Integration & Testing is easy. It require single JAR to deploy there is no need to deploy multiple jars. 
+*Horizontal Scalling: Increasing the no of servers instead of increasing the Hardware storage is called Horizontal Scalling.
+*Disadvantages of Monolithic:
+1>Selective Scalling is not possible(due to tight coupling every layers get scalled insead of single selective layer).
+
+*When a task is completed with the help of more than one system then that type of System is called as Distributed System.
+*Diffrence btw Distributed System & Horizontal Scalling:
+*Distributed systems have different components running on different  machines, but in horizontal scaling, the same components are instantiated and run on different machines. 
+In distributed systems, the components need to communicate through network calls but in horizontal scaling a machine can complete the whole task without any need to communicate with others. 
+
+*Need of Horizontal Scalling: When the no. of user increased then to handle the traffic we uses this scalling. 
+
+	##~~~~~~~~Main reason for the failure of Distributed System (observed by Google)~~~~~~~~~##
+1. Network Issues result in the failure of Distributed System. This is because, In the distributed system, different servers are present at different locations, and a good network connects these servers. If there is a network issue, then the connection between different servers in distributed systems gets broken, resulting in the distributed system's failure. 
+
+2. Commodity hardware is a device or 'device Component' that is relatively inexpensive(Less Expensive), widely available and more or less interchangeable with other hardware. Commodity hardware is used for distributed systems because many systems are used in distributed systems. But the quality and performance of commodity hardware are not good sometimes, and the possibility of failure of commodity hardware is more due to overheating and faulty hardware, which can result in failure of distributed systems. 
+
+Solution to the limitation of Distributed System: Redundency() & Replication(making the copy of the system data into another system) these above two helps to save the data in case of any digaster.4
+
+Latency:It is the time of(network delay + communicational time). Lower the system latency better the system is. Computational delay can be improve by using CDN (-Content delivery Network-) CDN uses cache memory to store the already computed data.
+
+*ThroghtPut:*How many request can be completed at a time. We can increase the thoughput in the following ways:
+1>Distribute the computation amongs system using load balancer, 
+2>Use CDN(content delivery network) to improve the performance.
+
+*Redundency: Redundancy is simply the duplication of nodes or components so that when a node or component fails, the duplicate node is available to service customers. This is how redundancy helps maintain availability, failure recovery or failure management of the system.
+*Type of Redundancy: Active(they are active all the time) & Non-Active(It copy the node data but remain inactive untill the other nodes doest not fail, Its basically a backup for its parent node) Redundancy.
+
+*Replication:(Active Replication & Passive Replication)-> It uses the master-slave model for replicating data within various servers, only master accept the data and save in the slaves): It is the process in which the data is stored in multiple copies hosted on other servers. Simply, it is the copying of data on various machines and updating the data whenever any changes occur in a single system.
+
+*Fault Tolerance/Partition Tolerance: The main concept behind fault tolerance is that it should handle the fault automatically if any fault occurs in future.
+
+##Diffrence btw Horizontal Scalling & Vertical Scalling:
+*In Horizontal scalling Additional Servers were added to the existing system to handle load, additional Hardwares are added to the system.
+*Vertical scalling can't be extended further on a particular point.
+*All components are allinged in a single system but in Horizontal scalling components are divided into diffrent system which increase the availability of the System.
+*Horizontal scalling cost is increasing Exponentially as the load increases.
+E.g: of Horizontal Scalling: MongoDb, Vertical Scalling: MYSQL, AWS RDB.
+
+*Syncronous Communication: It is a HTTPs communication which is performed between two microservices and if any one of the microservices is down then the communication will not sucessfully establish. e.g: Any request perform on the web Browser. 
+
+But in an Asyncronous Communication:
+*Asyncronous Communication: If one microservices will go down the other microservices will wait for its response utill it come back in running state.
+*Asyncronous uses Message Broker like KAFKA, RABBIT_MQ while syncronous communication does't use it.
+*Syncronous is a fast communication while ASyncronous is a slow type of Communication.
+*Example of Syncronous is: Banking Application where immediate response is required, video Calling,chatting etc.
+*Example of Asyncronous Communication: Email, Online Forum, Team Announcement, one Way Communication etc.
+
+
+

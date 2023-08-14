@@ -1,0 +1,76 @@
+													~~~~~~~### Spring ###~~~~~~~~~~~
+Spring is a light weight java framework. 
+
+JDBC Template class:It is a class which is use to perform the operation in DataBase. 
+1>update(String query)->It is use to update,delete & insert.
+2>public void execute(String query):It is use to create db query, Rename and alter query. 	
+3>query(String sql,); It is use to fetch the information from the db. e.g:SELECT * from table__Name;		
+
+AOP(Aspect Oriented Programing): Aop is an aspect oriented Programing which contains the common code of the Spring Application. Instead of writing the code in every module we make a class of Aop and in that class we define the common code. Aop may contains security codes, logging Codes, transaction Management. 	
+??????????????????????????????????????????????????????????????
+Advice: Action taken before or after the methode execution.	
+
+*DataBase Support in Spring/Spring Boot:
+1>JDBC Template:
+We have to do a HASH-A relation of "JdbcTemplate jdbctemplate;" in child class. then we can call (jdbctemplate.update(query,Parameters); e.g: String str="Insert into  TABLE_NAME VALUES(?,?,?); jdbctemplate.update(query,name,age,address); Link:http://adnjavainterview.blogspot.com/2017/09/advantages-of-spring-jdbctemplate-over.html
+
+2>Spring ORM:
+
+3>JSP in Spring Boot.
+
+Advantage of Spring framework: 1> It reduces the effort of developer by providing annotation 2> It provides the loose coupling in code 3> Testing of application is easy.
+  
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*Dependency Injection:
+It is the feature of spring frameWork which is use to provide the loose coupling btw the components.   
+*We can Configure the DI in two ways: 1> Annotation based Configuration(@Autowired) 2> XML based Configuration.
+*Advantage of DI: At any instance if you want to modify your code than you can easy do that without disturbing the whole functionality, which is not possible before Spring Framework.
+
+List of DI: 1> Field Based DI 2> Constructor Based DI 3> Setter Based DI.
+https://www.journaldev.com/2410/spring-dependency-injection
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+*IoC(Inversion of Control): Spring IoC is the mechanism to acheive loose-coupling between Objects dependencies. To acheive loose coupling and dynamic binding of the objects at runtime, objects dependencies are injected by other assembler objects. IoC is implemented by Dependency Injection(DI).
+
+Q:Why IOC is called Inversion of Control?: The control of Java Object & its life cycle is not control by developer thats why it is called so, Actually it is internally done by IoC.
+
+*IoC Container: IoC container is the core of Spring Framework. It creates the object, wire them and manage its life cycle till its death. 
+There are two types of container in spring framework: Bean Factory & ApplicationContext. Here the ApplicationContext is the advance version of Bean Factory. Bean factory doest support Annotation. "ClassPathXmlApplicationContext" implemented the ApplicationContext.
+
+*Bean: Any object in the Spring framework that we initialize through Spring container is called Spring Bean.
+In 3 ways we can configure the Spring Bean:
+1>Using Annotation (@Component, @Service)
+2>using XML
+3>Using Java class( @Bean, @Configuration ).
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~## Bean Life Cycle ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Link: https://www.geeksforgeeks.org/bean-life-cycle-in-java-spring/
+**Container Started-> Bean Initiated-> Dependency Injected-> custom init() method-> custom utility method-> custom distroy method;
+*The bean life cycle is nothing but how it is created, performed and distroyed by the spring container.
+*@PostConstruct is an annotation used on a method that needs to be executed after dependency injection is done to perform any initialization,
+It automatically trigger the init method and init method contains the intialization codes.
+*@PreDestroy it is use to execute the destroy method before the destroy of bean.
+*init() method: It can be use if we want to run some code after the bean is instatiated.
+*distroy() method: It is use to run some code before the close of conatainer or before the deletion of bean. 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Scope of Beans: Singleton(Same Bean is created), ProtoType(Each time a new Bean is created), Request (bean request the HTTP request), Session(Bean will be Session), Global-Session(Global Session will be their).
+
+**How many ways we can create the Bean: 
+1>Creating Bean Inside an XML Configuration File (beans.xml).
+2>Using @Component Annotation.
+3>Using @Bean Annotation.
+Link:https://www.geeksforgeeks.org/how-to-create-a-spring-bean-in-3-different-ways/
+
+Note: @Component is an annotation that allows Spring to automatically detect the custom beans.
+We can also define the name of a bean inside the @Component to avoid autowiring conflict.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~## Spring Batch ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+##Using two multiple DataBase inside the Spring Application:
+*Configure their URL & userName, Password inside the properties file. spring.datasource.url=; spring.secondDatasource.url=
+*Use @ConfigurationProperties annotation.
+*@EnableJPARepository, @Configuration, Spring Builder.
+*Use @CofigurationProperties(prefix="spring.second-datasource") annotation to.
+*Spring.second-dataSource.url/userName/Password.
+
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+spring.jpa.hibernate.ddl-auto=update
+

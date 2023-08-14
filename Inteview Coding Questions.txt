@@ -1,0 +1,10 @@
+Inteview Coding Questions:
+*Find the SquareRoot of a no. without using Library Function.Link: https://ide.geeksforgeeks.org/77d9a945-f05d-458b-bdf4-d3a9baa30ff1
+	***Some Facts About XOR Function***
+a>>1 gives a/2 result, a<<1 gives a*2 results.
+*Given an array in which no.s are repeated even no. of times except one no. then find out that no. LinK:https://ide.geeksforgeeks.org/d900faff-3ab3-4ebf-a96e-63be89f49633
+* Swapp two nos without using third variables. Link: https://ide.geeksforgeeks.org/da2b4061-12de-4953-b514-d86969e87a27
+*Find the no of ones in a binary representation: https://ide.geeksforgeeks.org/49f72986-3a7d-4e7e-b41c-f8c03ee836b1
+*XOR of 1 to N is : If (n % 4 == 0) result will be n if(n % 4 == 1) result will be 1, if(n % 4 == 2) result will be n+1; 
+ 	
+ 

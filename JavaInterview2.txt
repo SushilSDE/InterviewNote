@@ -1,0 +1,211 @@
+*ClassLoader: It loads the class into the JVM.
+*Java is not 100% Object Oriented bcz it has premetive data Types and these type of data Types found in premitive data type class.
+Diffrence btw "Vector & ArrayList": 
+*Vector methods is synchronized, ArrayList is not(ArrayList is faster as compare to vector).
+*Data Growth-> Vector doubles its size when its full, <ArrayList increases its size by 50% of its initial when its full>.
+Note: CompareTo works with the Objects of Primitive DataTypes.
+*Public is use to access the method from any were, static is use so that main method can be accessed without making the Object, also we can exchange the public & static in Java.
+*main(String args[])->"String args[]" is use to send arguments. RunCofiguration->Argument_Option. Link:https://www.digitalocean.com/community/tutorials/command-line-arguments-in-java
+
+*Java8 Improvement features:
+*when the number of items goes beyond a certain threshold (more than 8 entries in a bucket), the bucket will switch to use balanced tree instead of linked list to store the items or entries. So in Java 8 in case of high hash collisions, the worst case performance will be in O(log n) time complexity.
+ 
+** Why wait(), notify() and notifyAll() methods are defined in Object class not Thread class?.
+They are part of the Object class in Java because every Java object can be used as a lock for synchronization purposes.
+
+
+*Diffrence btw Callable Functional Interface & Runnable Functional Interface:
+(These both are the functional Interface) Callable is use to perform an asynchronous task. 
+*Runnable Functional Interface is use to run an application on a seprate thread while callable is use to check the status of running thread.
+*Callable contains call()->method while Runnable contains run() methode.
+*Runnable can throw only UNCHECKED Exception, while Callable throw only CHECKED Exception,
+*Return type of callable is not void while runnable has void return types.
+
+*Diffrent btw HashMap & HashTable: HashMap allow a single null key and can be multiple null value to its value but hashtable dont allow any null value in key & Value.
+*HashTable is thread safe unlike HashMap.(we can make it syncronized by calling Map m = Collections.synchronizedMap(hashMap);),
+*HashMap is fast as compare to HashTable due to non synchronized.
+
+*Diffrence btw Collection & Collections:
+*Collection is a parent interface which contains sub interface of LIST,SET,QUEUE while Collections is utility class which contains static functions inside it which can be called using the Collection.xx class.
+*The add(), remove(), clear(), size(), and contains() are the important methods of the Collection interface.
+(whereas) 
+*Collections class contains only static methods like: sort() i.e: Collections.sort(lst);, min(), max(), reverse(), fill(), copy() etc.
+Link:https://www.quora.com/What-are-the-main-differences-between-Collection-and-Collections-in-Java#:~:text=Collection%20is%20a%20base%20interface,of%20the%20Java%20Collections%20Framework%20.
+
+#Diffrence btw the Stream API & Collection: 
+*A stream does not store data, 
+*An operation on a stream does not modify its source, but simply produces a result.
+*Collections have a finite size, but streams do not.
+
+#Diffrence btw the Comparator & Comparable Functional Interface: Link:
+*Comparator override compare(Object obj1,Object obj2) & Comparable override CompareTo(Object obj) method.
+*Collections.sort(lst); is use to sort the list of Object in Comparable but Collections.sort(lst,comparatorClassObj); work for comparator.
+*Comparator uses dual parameter to compare while comparable uses single parameter.
+
+*Diffrence "==" operator & .equals():
+>The main difference between the .equals() method and == operator is that one is a method, and the other is the operator.
+>We can use == operators for reference comparison (address comparison) and .equals() method for content comparison
+.eqauls() override -> Link: https://ide.geeksforgeeks.org/online-java-compiler/0d217d7f-de2f-45a2-92a8-4a7a04c6e159
+--> String.compare(x,y); Double.compare(a,b); but not true for String.compareTo(a,b); Double.compareTo(l,m);
+
+Diffrence btw the Wait & Sleep: 
+*Sleep doest release the lock, while wait release the lock.
+*wait is use to perform interthread Communication while sleep is use to pause/stop the execution.
+*Wait is always in a sycronized block while sleep doesnt require.
+*Wait can be break by using notify()/notifyAll() but sleep cant be brokable.
+*Wait is a non-static method of Object class while the sleep() is a static method of Thread class.
+
+Diffrence btw finally block & finalize method:
+*finally is the block which is use with the try catch block to close the db connection while finalize block is called when the garbage collection is called with the help of System.gc(). 
+*finalize() method in Java is used to release all the resources used by the object before it is deleted/destroyed by the Garbage collector.
+
+Diffrence btw ArrayList & LinkedList:
+*ArrayList implements List Interface & LinkedList implements List & Dequeue. 
+*Internally it uses dynamic array to store the element while LinkedList uses doubly linkedList to store the element.
+*less memory required, need more memory due to doubly linked List.
+*manipulation is slow bcz array required bit shifting while manipulation is faster in LinkedList.
+*ArrayList is use for storing purpose while LinkedList is use for manipulation purpose.
+
+Diffrence btw the Stack & Heap:(Java allocate the memory using these two Data Structure)
+*Stack has "static memory allocation" while heap has "dynamic memory allocation".
+*Stack memory allocation done at compile time while Heap memory allocation done at runtime.
+*Stack follow the LIFO, while it is not valid for Heap.
+
+Diffrence btw the MongoDb & SQL:
+*MongoDb is a Non-Relational DataBase and SQL is a relational DataBase.
+*MongoDb store a large volume of unstuctured data but MySQL store structured Data.
+*It is faster than Mysql, It stores data in form of JSON, which help client Application to directly interact with client.
+*Horizontal Scalling  is possible in No-SQl but Vertical Scalling is possible in SQL Db.
+
+*Diffrence btw the HashMap & ConcurrentHashMap:
+*HashMap allow single key as NULL and multiple null values but it is not allow in ConcurrentHashMap(gives null pointer Exception).
+*ConcurrentHashMap is totally thread safe which means when a single thread is iterating the Map then other threads can  also iterate the HashMap.
+*HashMap is faster than the ConcurrentHashMap so thats why we were using HashMap for single thread.
+*ConHasMap uses Syncronized block HasMap did not use them.
+Link: https://www.javatpoint.com/hashmap-vs-concurrenthashmap-in-java#:~:text=HashMap%20is%20a%20powerful%20data,synchronized%20class%20of%20Java%20collection.
+
+JDK->JRE->JVM this is the hierchy.
+JVM:Java virtual machine which is use to execute the Byte code. Load->Verify->Execute. 
+JRE:(Java RunTime Environment) It provide environment to only run not to develop. 
+JDK:(Java Development Kit) provide the Environment for the Develope and Excecute of Java Program. It include Development tools & JRE. It is use by developer.
+
+Generic: It provide compile-time safety that allows programmers to catch invalid types at compile time. We can use generic with Class & methods.
+Its syntax is :angle bracket "<>" followed by the refernce type of Arguments. i.e: Class <U,V,...>. public T<> function(String str,...){}; Link: https://www.geeksforgeeks.org/generics-in-java/ 
+*How to create a index in SQL-: Data is taken from a column of the table and is stored in a certain order in a distinct place, called an index. CREATE INDEX index_name ON Table_Name(Column1,Cloumn2);
+									~~~~~~## Memory Model ##~~~~~~~~~~
+*Memory Model:									
+*Marker Interface:
+##Uses of Marker Interface
+*The main use of the Marker Interface in Java is to convey to the JVM that the class implementing some interface of this category has to be granted some special behavior.
+e.g, when a class implements the Serializable interface, which is a marker interface, then this is an indication to the JVM that the objects of this class can be serialized. Similarly, when a class implements Cloneable Interface, then it indicates to the JVM that the objects of this class can be cloned.
+###
+{It is a type of Interface which doest contains any methods or varible it is totaly empty}.
+It can be categorized in two Build-In(which is prebuild in JDK) Interface & Custom Interface(user can define its own).
+It is use to give message to the JVM to behave diffrently to the implemented class of marker Interface.
+*Build in Interface(Clonable, Serializable etc): If we are using {Obj newObj= Obj_var.clone();} method without implementing the Inbuild Cloneable Interface then we gets error. JVM expecting the marker Interface Implementation while using the clone() method.   https://ide.geeksforgeeks.org/0hT5HKbBvs We can perform the link code normally also but if we wants to change the no of marker Interface then each time we have change the methods which creates problem. So better to use MI.
+We can custom Marker Interface also like, add perticular boolean flag for indication.
+
+*Diffrence btw ClassPath & Path: ClassPath is set to locate all Java class, It is editable & changeable, We are setting it in environment variable in system.
+While path contains the path of javac, It is non changeable.
+
+Diffrence btw ClassNotFound Exception & NoClassDefFoundError:
+*It is a checked Exception where as NoClassDefFoundError is an Error.
+*It occur when the class in not present inside the classPath, typically occurs when a class was present during the compilation of a program but is missing at runtime.
+
+~~~ClassNotFound Exception && NoClassDefFoundError~~~~ : ClassNot found Exception occur when we are trying to load a class with Class.forName("GFG") or loadClass() and it doesnt exist in the classPath.it is checked Exception. Link1: https://ide.geeksforgeeks.org/s4GROXrSCH 
+Link2: https://www.geeksforgeeks.org/classnotfoundexception-vs-noclassdeffounderror-java/
+NoClassDefFoundError:It occurs when the class is present at compile time but at runtime it doesnt present.This error occur from linkage Error.
+Class Loader: It is a part of JRE & it load the class in JVM when it is required for the class.
+~~~ClassCastNotFound Exception:When we are trying to cast the object in subclass which is not an instance of that object. e.g: when Integer object trying to cast into String Object i.e: Object obj=new Integer.valueOf(23); String str=(String)obj;
+
+***Parallel Stream: Normally any java code has one stream of processing,where it is executed sequentially. Whereas by using parallel streams, we can divide the code into multiple streams that are executed in parallel core. Finally we merge the diffrent core results but the order of execution did not maintained.
+
+DeadLock Link1:https://ide.geeksforgeeks.org/UmwSxQhvdc, Link2:https://ide.geeksforgeeks.org/m7OtS4d8bH
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*Working Priciple of HashMap: It work on the basis of Hashing, basically implements the Map Interface. 
+HashFunction: It is a function which provides value to every key of hashMap, internally it calls the HashCode() methode.
+Bucket:It is use to store the key value pairs. It uses LinkedList to store the many key values.
+*HashMap accept the Key & it create the HashCode by calling hashCode() methode, after that on the basis of hascode it search the position in bucket and perform add/fetch operation. 
+Note: Bucket contains <hash,Key,Value,bucket_Index>
+**If the size of HashMap is filled then the bucket uses LinkedList to store the value,(linkedList contains <hash,key,value,next>)
+So to check the existence of a value, first it will fetch the position inside the bucket with the help of hashCode and if the Linked list is associated with the bucket then it will iterate the linkedList and also it wll compare the linkedList key with the get(key) argument, if it will match then it will return it.
+When the HashCode is same for two value then we have to search inside the LinkedList & insert it.
+*Fetch value when two Key has same value: We have to use key.eqauls() to .
+ 
+Working of Set/HashSet: 
+*Set acheives the uniqueness in its elements through HashMap, If a unique value is insert in set then it returns true else false i.e map.put(value,"DummyValue")==null;  https://examples.javacodegeeks.com/core-java/sethashset-works-internally-java/
+*So once the return is false for the added element then HashSet will not add. It will add only when the element is unique i.e retun is True.
+
+Working of List: List implemented by two class ArrayList & LinkedList, With the help of List, we can perform Iteration,search,Insert. 
+Initial Capacity of ArrayList is 10. But we can also define its size List lst=new ArrayList<>(38);
+*Working of ArrayList: First when we declare the ArrayList then by default constructor will going to call, and that constructor will create a new Object array. If we define size of arrayList then it create the Object array of same size.
+*So when we add an element in the array then fistly the arrayList will check its current capacity and then it will compare the capacity with the original size plus the required size.
+*If the capacity is not enough then it will create a new capacity and the size of new capacity is equal to the oldCapacity + single left sift of the old capacity or you can say the half of the original capacity.
+*Then a new Array will going to create with the new capacity, and old array is going to copy in the new one. i.e: Arrays.copy(new_Array,Old_Array);
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Assertion (Bal de kar kahna): An assertion allows testing the correctness of any assumptions that have been made in the program. Link:https://ide.geeksforgeeks.org/uCeBYeOwvM
+While executing the statements it is beleive to be true if the satement is false than the code throw "java.lang.AssertionError". ByDefault assertion is desabled bydefault. To enable it use command :"java -enableassertions Example". 
+
+*Static Import: It is use to feth the static members() of class without using the class name or its object, e.g:double dob=Maths.sqrt(10); is written as double dob=sqrt(10); But it creates the ambiguity if two classes have same functions in it. It only easy the readability of code.
+*Import Static Keyword: It is use to import the static Class members which are present inside the other Packages.
+
+*Note: An interface extends multiple interface but a class cant extends multiple classes, Also a class can implements multiple interface.
+
+*Nested Interface inside a class: Link1: https://ide.geeksforgeeks.org/ueAH9e6GSR ,** Nested Interface inside an Interface. Link2: https://ide.geeksforgeeks.org/sGs4ROqTQe, The nested interfaces should be public by default, any modification inside the interface gives an error.
+
+Define throw, throws & throwable keyword:
+throw: It is use to throw an exception from a methode or a peice of code. i.e: throw new RuntimeException();, throw new ArithematicException(); We can only use an unchecked exceptions.
+throws:It is use to handle the exception. We can handle the exception either using try catch block or by using throws keyword. It is use with the signature of method. We can use both checked & Unchecked Exception.
+throwable: parent class of Exception & Error. User can create its own throwable class.
+
+Diffrence btw throw & throws: 
+1> Only unchecked exception can be throw with the throw keyword, but we can throw checked & unchecked both using throws.
+2> At a time only a single exception can be throw using throw but we can throw multiple exception using throws keyword.
+3> throw uses the instance of the Unchecked Exception.
+
+				## Stream API Related Questions ##
+*Predicate: These are the functions which takes object as input and return boolean. Filter is the Example of Predicate.				
+*Peek(): The peek() operation is mainly intended for debugging or logging purposes and should not be used for modifying elements of the stream. Syntax: 
+*List<Integer> lst = Arrays.asList(1,2,34,4);
+FlatMap(list->list.stream());
+* Explain the difference between predicate and function. predicate return boolean & function return Object.
+Although, they are both functional interfaces, Predicate<T> is a single argument function that returns either true or false. Function<T,R> is also a single argument function, although it returns an object instead. In this case, the “T” represents the type of function input, and the “R” denotes the type of result.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#Questions:~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * Find the Duplicates in the List. Link: https://ide.geeksforgeeks.org/online-java-compiler/53c3aeb4-10b8-44a8-8c15-e954b23933ea 
+*Find the 2nd/nth largest Element inside the ArrayList: Link:https://ide.geeksforgeeks.org/online-java-compiler/4a3cbdd5-affc-4579-8429-967bc5b4cc03
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//Syntax: 
+.iterate(Initial_Value,x->x+"Hello!");
+** Stream.iterate(0,n->n+1).limit(10).foreach(x->System.out.print(x)); It will print the digit from 1 to 10.
+**Stream.iterate("",x->x+"Hii");
+						~~~~~~~~~~~~OOPs Concept~~~~~~~~~~~~~~~~			
+Abstraction,Polymorphism, Encapsulation, Inheritance are the four core concept of OOPs.
+*Encapsulation: https://www.javatpoint.com/encapsulation
+Association:It is many to many relation with the Object. One object can be associated with the multiple Object e.g:Student & Teacher. 
+Aggregation:It is a Has-a relation of Object. (one to one relation)
+Composition:It is a restricted aggregation. One Object cant exist without the others. e.g: Engine & Car.
+Note:Constructor is a methode which dont have any return type and it has same name of Class.
+Static Binding and Dynamic Binding:Static binding is Runtime polymorphism e.g:Overloading while Dynamic binding is a Dynamic Polymorphism e.g:Overriding.
+
+*Order of Execution: Static Block>Constructor>instance Method.
+Link: https://ide.geeksforgeeks.org/online-java-compiler/7961730b-d7a8-402c-8f70-7ccf00442d80
+Link: https://mkyong.com/java8/java-8-collectors-groupingby-and-mapping-example/
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~# JUNIT TEST #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Demo Link: https://ide.geeksforgeeks.org/online-java-compiler/f5aa7e88-e886-417c-95a2-74b4c4c51a96
+Testing-->>"JUNIT"
+assertEquals(value,);
+
+@Test
+public void Test()
+{
+ assertEquals(value,Class_Name.function(x,y));
+}
+
+# Assertion Statements #
+assertEquals();
+assertNotEquals();
+assertNotNull();
+assertNull()
+assertTrue(function()==value)
+assertFalse();

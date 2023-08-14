@@ -1,0 +1,12 @@
+Questions: 
+*Design Pattern.
+*MySQL query.
+
+Lambda Expression Examples:
+forEach methode i.e: list.forEach(System.out::print);
+
+
+PaySlip Website: www.allsechro.com/Smartpay/UserAccount/Login.aspx 
+ 
+
+

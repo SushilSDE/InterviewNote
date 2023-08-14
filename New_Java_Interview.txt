@@ -1,0 +1,53 @@
+# Singleton Class..
+
+public class Singleton
+{
+private static Singleton instance=null;
+public Singleton getInstance()
+{
+	if(instance==null)
+	{
+		syncronized(Singleton.class)
+		{
+		if(instance==null)
+		{
+		 instance = new Singleton();
+		}
+		}
+	}
+	return instance;
+}
+}
+Link: https://www.geeksforgeeks.org/singleton-design-pattern/
+...............
+fail safe->When their is no ConcurrentModification exceptions occur inside the iteration then it is fail Safe, it happens bcz the modification is done at the copy part, 
+fail fast: CopyOnWriteArrayList<> https://www.javatpoint.com/fail-fast-and-fail-safe-iterator-in-java#:~:text=The%20Fail%20fast%20iterator%20aborts,failures%20as%20much%20as%20possible.
+............... Object Level Lock Vs Class Level Lock (sycronized(this),sycronized(Class_Name.class))
+Link:https://www.tutorialspoint.com/difference-between-object-level-lock-and-class-level-lock-in-java
+**Note: Class Level Lock: It is use when the user need to handle the Static method or Static Block of code, it is necessary to make class as a thread safe, bcz static can be accessed through the reference of class.
+
+*GroupingBy in Java8: https://codingnconcepts.com/java/streams-with-map-java-8/#using-collectorsgroupingby
+* Department who is provinding a heighest salary to their Employee.Link:https://ide.geeksforgeeks.org/online-java-compiler/021ade53-f4a5-4452-8aee-41508957ca35
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~# DI Example # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#Without Dependency Inversion Principle:
+In this scenario, we'll start by designing the notification system without adhering to the Dependency Inversion Principle.
+The parent class is dependent on its child class, which provide a tight coupling. We can remove the dependency by using the DIP.Link1: https://ide.geeksforgeeks.org/online-java-compiler/c956ece1-58cd-4dd9-96b6-0a13e68baeb7
+
+# With Dependency Inversion Principle:
+Link2: https://ide.geeksforgeeks.org/online-java-compiler/94b53137-466a-4a08-92fb-5d76c9d5d06a
+As you can see the parent is dependent on the Interface(Absatraction ) and the childs are implementing it and we can add many child without modifying the parent class. 
+
+*Daemon threads are useful for background supporting tasks such as garbage collection, releasing memory of unused objects and removing unwanted entries from the cache.
+
+*Basic inbuild Operations: Queue-> add(), poll(), peek(); Stack-> push(),pop(); LinkedList-> add(), pop();
+*List of Inbuild functional Interface: Comparator, Comparable, Runnable, Callable.
+
+*Sum of the age of Employee:https://ide.geeksforgeeks.org/online-java-compiler/10bc99dc-a038-4c7a-ae01-a11efdd7ca72 
+
+* Avoid Duplicates of an Employee obj inside the Set: Link: https://ide.geeksforgeeks.org/499327b7-ddf0-4d99-a379-2ca5628a80f4
+* ForEach vs ForEachOrder: forEach doesn't guarantee the order of processing, while forEachOrdered guarantees the order of processing.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~## Stream API Coding Questions ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*Find the Occurence of each char Link: https://ide.geeksforgeeks.org/online-java-compiler/43ac8340-6df0-4359-b14f-0dd39dac4558
+*Print char whose occuence is >1 && ==1 Link: https://ide.geeksforgeeks.org/online-java-compiler/2f48b966-3154-4ffa-9787-8d11791852b2
+*

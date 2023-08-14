@@ -1,0 +1,408 @@
+							~~~~~~~~~~~~~~~# Java Interview Questions# ExceptionHandling,Collection,streamAPI~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~# S.O.L.I.D #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*S: (Single Responsibility Principle): Assign single responsibility to every Interfaces, Avoid Interfaces which contains multiple responsibility bcz they often change based on the new requirments which makes sofgtware hard to maintain.
+*O: Open-Closed Principle (OCP). Open for Extension (addition of parts) but closed for modification.
+
+*L: Liskov Substitution Principle (LSP)-> It states that objects of a superclass should be replaceable with objects of its sub-classes without breaking the functionality of Application. e.g: https://ide.geeksforgeeks.org/online-java-compiler/07c222c0-bdd6-45cf-bc0f-0f2052031032
+
+*I: Interface Segregation(sepration based on the race) Principle -> "No code should be forced to depend on methods it does not use", ISP splits interfaces that are very large into smaller and more specific ones so that clients will only have to know about the methods that are of interest to it.
+
+*D: Dependency Inversion Principle(DIP) -> High Level module should not depend on the low level module they both are depend on the Abstraction and Abstraction should not depend on details but details shoud be.
+
+Link:https://www.javatpoint.com/solid-principles-java
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*We can overload the main() methode but JVM will call only the original one(String Args).
+**when static keyword is not included in main methode then JVM will unable to map the main methode as a result their will be "NoSuchMethodeError" will throw.
+*Wrapper Class: It is use to convert the primitive data types into the object. It is required bcx Collection & Generic Class/method uses Object instead of Primitive Data types. e.g:Integer,Boolean,String etc. Integer num = new Integer(42); String str = new String("hello");
+*str1.compareTo(str2);->0 If both are equal,-ve if numieric code of str1>str2, +ve if unicode of str2>str1;
+*Generic( Class & Method ) in JAVA(Link:https://techwithmaddy.com/what-does-lesstgreater-mean-in-java).
+Note: class can implement multiple interface but extends only single parent class.
+Diffrence btw List & ArrayList: 
+1.1-> List is basically the parent Interface while the ArrayList is a Class which implement List. 
+1.2-> List extend the Collection framework, while ArrayList implements List interface. 
+1.3-> List cannot be instantiated. ArrayList can be instantiated.
+1.4-> List interface is used to create a list of elements(objects) that are associated with their index numbers. ArrayList class is used to create a dynamic array that contains objects.
+**Collections.sort() in Java:Link:https://www.geeksforgeeks.org/collections-sort-java-examples/ e.g:It sort the list in natural Order **Collections.sort(lst,null);
+1>How does the java.time package in Java 8 improve date and time handling? Can you provide examples of working with dates and times using this package?
+Ans.:-> LocalTime, LocalDateTime, and Duration are some feature of Java8.
+*lst.stream().sorted(new ComparatorObj(x,y)).collect(Collectors.toList());//Working Fine
+**Sort Array in Reverse Order: Collections.sort(arr,Comparator_Class_Object);
+Note: A class cant be private & Static, It can be only final,abstract and public only.
+*Map methode in Stream API: It is an Intermdiate function in stream API which is use to perform operation on each elements of the Array.
+*Constructor:It can be private and can not static,final or abstract. 
+*Constructor can't be overriden but can be Overload ,bcz child can't inherite the initialized properties of Parent Constructor.
+*ConcurrentModification Exception: The ConcurrentModificationException occurs when an object is tried to be modified concurrently when it is not permissible.
+*Iterator in a list -> Link:https://ide.geeksforgeeks.org/online-java-compiler/6d63c5c8-b37a-4dc2-b82f-123f8d1e3fbd
+*Static Method cant be Overridden/Override: Bcz overidden is dynamic polymorphism which occurs during the runtime, but the static methods are loaded and looked up at the compile time statically.  
+
+Immutable String: Immutable means the value of Object cant be changed. String is immutable bcz of Following reason:
+1>String pool: A single value of String Pool can be reference by diffrent objects,So if it is mutable then the value of other threads will also change which is not a requirment. 
+2>Multithreading: Multiple thread cant change the value of string (multi-threading). 
+3>Security:For security purpose also string is immutable. If it is immutable then hacker cant change the essential information.
+
+Cache hash value: When you use String as key in HashMap or HashSet or any other collection, you can cache it’s hash value.As String is immutable in nature, you don’t need to calculate each time as it will be constant. It greatly improve performance for this hash based collections.
+
+Advantage of Immutability: Java compiler can save space in the memory by sharing strings multiple thread can't change the value. 
+
+Note: int a=1_2;//a=12; "_" doesnt impact the result.
+
+Disadvantages of Immutability: We cant use immutable(String) object for security purpose bcz its value is store in string pool and it cant be deleted unless we delete it, so hacker can take advanatages of that property.    
+
+Speed of Operation: StringBuilder->StringBuffer->String.... 
+1>Storage Area: Constant pool for String, Heap for both string Builder & String Buffer, 
+2>String & "String Buffer" is thread safe while String Builder is not, 
+3>String is immutable while StringBuilder & StringBuffer is mutable.
+
+*** NOTE ***: 
+1.1> When a class is declared as final then variables can be Override but its method & Constructors can't but we can access it by making its Object by Has-a relation.
+1.2>A final class cant be extended in another words we cant make a child of final class.***
+**try block can be declared without catch, instead of catch block we will use finally{} block.
+					!!!Access Specifier!!!
+##Pivate:(OuterClass can't be private) When a class is private then its all members(Constructors,Variables,methodes) are also private. They are accessible only inside the Class.
+##Protected: The protected can be accessed inside the package as well as Outside the package only when the outside package class is the child(Sub-Class).
+##Default: When nothing is mentioned then it is default, so it can be accessed only inside the package not outside.
+##Public:It is accessible inside as well as outside of the package. 
+
+##finally{}:It will execute even when there is return statements in  the Try or Catch block. It will not execute only when System.exit() or power falure will occur.
+##finalize(){}:It is a method that the Garbage Collector always calls just before the deletion/destroying the object like deletion of dataBase connection or closing the Network Connection. It is called to release the resources.
+Note: The Garbage collector of JVM collects only those objects that are created by new keyword. So if you have created any object without new, you can use finalize method to perform cleanup processing (destroying remaining objects).s1=s2 or s1=null;
+
+*In OPPs, a singleton class is a class that can have only one object at a time. 
+*It is used for the database & Multithread purpose e.g: Logging, Caching, Thread Pool etc.
+A static synronized method getinstance() that has return type object of this singleton class static methode make an instance of Object. So when ever the object is made using this methode the previous obj will going to return.
+e.g:https://ide.geeksforgeeks.org/NvulRVfHu4 here when the variable value is changed with the help of a single obj then the value of others will also change.
+
+*Iteration in HashMap: Link: https://ide.geeksforgeeks.org/m5JhUPkaUx
+*Collections.sort();
+Collections.sort(lst,Collections.reverseOrder());It sort the list in a descending Order.
+Collections.sort(lst,new ClassObj() );It sort the lst with the help of Object. Link:
+lst.sort();
+
+*Priority Queue: It is also a queue but when the elements needs to be procesed based on the their priority then at that time we use it. The elements are procesed based on their Natural Order or on a defined Comparator. If the priorityQueue use Collection then the priority will be on the basis of Collection. It does not allow null value. https://ide.geeksforgeeks.org/wPEKqDLoXU.
+
+**##The way to transverse each element of queue is to use Iterator. 
+*Abstraction is a process of hiding the implementation details and showing only functionality to the user. Abstraction lets you focus on what the object does instead of how it does. It can be performed using Abstract(0 to 100 %) can contains definition of non abstract class && Interface 100% bcz interface contains only function decleration and it doest contain any definition.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~##Desing Pattern##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Desing Patter in Java: A design patterns are programming language independent strategies for solving the common object-oriented design problems. 
+*Singleton Design pattern: It is of two types (Early & Lazy Intializer), Object are created early in early Intializer but objects are created at the required time in lazy Intializer. 
+*Advantaged: It takes less Memory bcz object is created only at single time.
+
+*Constraints in MySQL.
+NOT NULL - Ensures that a column cannot have a NULL value
+UNIQUE - Ensures that all values in a column are different
+PRIMARY KEY - A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table
+FOREIGN KEY - Prevents actions that would destroy links between tables
+CHECK - Ensures that the values in a column satisfies a specific condition
+DEFAULT - Sets a default value for a column if no value is specified
+CREATE INDEX - Used to create and retrieve data from the database very quickly
+*Garbage Collection clear which parts of memory-->Heap Memory.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~## ABSTRACTION ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Abstract Class : (It can not be instantiated) An abstract class must be declared with an abstract keyword and it is extended in its child class. It can contains an abstract method as well as may be a non-abstract methode(non-abstract method must contains their definition). 
+* It can have abstract and non-abstract methods (we have to give definition of the method in the same Abstract Class).
+It can not be instantiated means we can't define like this: Abstract_Class abs=new Abstract_Class(). we can call the function of Abstract class by declaring it as an annonymous class.  https://ide.geeksforgeeks.org/a9Yr4gyKNR
+
+*Q>> How we are accessing the Constructor of Abstract class, bcz like the interface we cant intialize the Abstract class.
+Ans>> To call the Abstract constructor we have to declare the child constructor and inside that we have to call super(),super(x,y) etc. https://ide.geeksforgeeks.org/online-java-compiler/8d4efbc3-6fd3-47fb-a85f-8cb85862a9ff
+*So when ever a constructor is declared as private in Abstract class then it cant be accessible inside the child Class. 
+Note->: Every Abstract method must be defined in its child class. 
+*It can have constructors and static methods & final method which force the subclass not to change the body of the method.
+* But we can not make abstract method as private, static or final.
+*We can create an annonymous class of Abstraction.
+Link: https://ide.geeksforgeeks.org/online-java-compiler/84a953ae-d4cc-4e69-8298-a237db4f7dff
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~## Interface  ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Interface(100% Abstraction): 
+The reason to use interface instead of Abstract class is : 
+We can implements multiple interface but we cant extend multiple classes.
+
+Note:An Interface can also be extend from one interface to another Interface. Functions which declared inside of Interface must be defined in its child class.
+
+**Generally abstract contains non-implemented methods but we can implement the methods by using the "default" or "satic" keyword.
+https://ide.geeksforgeeks.org/MznovTx2kZ static method is use to store the information of Interface, while default is use to add new functionality in the existing one.
+
+**Interface SampleInterface //It support only abstract,static method & Default Method. 
+{
+private void add();//Not accessible inside the Sub-Class.
+public static void add();//We have to give defintion of that method.
+public final void add();// Final is Not possible .
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+							~~~~~~##Multithreading##~~~~~~~
+Multithreading:The process of executing the multiple thread simultaneous.
+Terms:ThreadClass_Obj.start()->It run the thread, Thread.CurrentThread.getPriority()....setPriority()
+LifeCycle of MultiThreading: NEW->RUNNABLE<-----Non-Runnable(Waiting State)<---|
+								    |-->------>RUNNING--------------------------^-------->TERMINATED.
+*Daemon thread: It is a service(finalize, garbage Collection) provider thread that provides services to the user thread. Its life depend on the mercy of user threads i.e when all the user threads dies, JVM terminates this thread automatically.	
+*Thread_var.setDaemon(true); It will set the user Thread as a daemon thread. Thread_var.setDaemon(flase); It will convert the damenon thread into the user. thread. Link:https://ide.geeksforgeeks.org/online-java-compiler/75c647a3-429f-4907-b374-5c877a676375
+
+*Syncronized: It can be applied on method or on a block...
+syncronized(Object obj/int val/float f)
+{
+}
+*JOIN(): When the join() method is invoked, the current thread stops its execution and go into the wait state and it will remains in the wait state until the thread on which the join() method is invoked called is dead or the wait for the specified time frame(in milliseconds + nanos) is over. So we can also pass the wait duration inside the join methode.
+
+**Diffrence btw Join, yeild, sleep: 
+Sleep stop the execution of current thread for a particular amount of time (Thread.sleep(100)). 
+In yeild thread schedular give the control to same periority thread which are in waiting state Thread which is calling the yeild method tell loudly that its execution is not very important. Syntax:Thread.yeild() thread_Name.join() wait till the execution is finished.	
+*Thread: Thread is a lightweight process within process. We can create thread while two ways: Runnable Interface & Thread Class.
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+*There are two ways to implement the THREAD..
+1>Extend the THREAD Class 
+2>Implements the RUNNABLEs Interface.
+But Runnable Interface is more prefered bcz it is an interface so we can implements multiple interfaces but Thread is a class so if any other class is already extends then we cant extends Thread in that class. 
+*What is Daemon Thread in Java and explain their properties? 
+Daemon thread is a low-priority thread that runs in the background to perform tasks such as garbage collection. It does possess certain specific properties as listed below:
+They can not prevent the JVM from executing when all the user threads finish their execution.
+JVM terminates itself when all user threads finish their execution
+If JVM finds a running daemon thread, it terminates the thread and after that shutdown itself. JVM does not care wether the Daemon thread is running or not.
+It is an utmost low priority thread.
+*Wait(),notify()& notifyAll() present inside the Object class and they helps to do the Inter Thread Communication.
+*Why wait() and notify() is defined in Object class: Locks are made available on per Object basis. 
+						~~~~~~~~~~##-----------##~~~~~~~~~~
+*Garbage Collection:It is use to distroy the threads which are unnecessary or unreachable.
+We can perform the garbage collection in mainly three ways: 
+1>By assigning the object as a null value 2>By assigning the reference object of one to another 3> By calling System.gc() method. 
+	
+String Pool: It is a small cache that resides within the heap which helps to save the memory. It is use to store the object of String. But if we create the String object with the help of new keyWord it will be Outside of the Constant Pool.Link : https://www.geeksforgeeks.org/string-constant-pool-in-java/ 
+** String st1=new String("Hello");--> It creates 2 obj (inside the constant pool & Inside the Heap); 
+String str2="Hello";(create object in constant pool). But here total 2 object will be created, 2 obj for new & no obj for str2. It refer the already present value of string pool.
+*String str1 = new String("Hello"); String str2 = new String("Hello"); 3 obj. created( 2 obj from str1 & one more from str2 ).
+Note: If the content of the two string is same then they refer the same object of the String Pool.
+*The string constant pool exists mainly to reduce memory usage and improve the re-use of existing instances in memory.
+Note:With the help of this()/this(parameteres) method we can call a Constructor of a class from another constructor of the same class.
+GET: We can only read the Data.
+POST:It is use to create a resource -->Just like we are posting(Creating) a story on FB.
+PUT / PATCH: It is use to Update the resource. It is Idempotent. 
+URI − Uniform Resource Identifier (URI) to identify the resource on the server.
+*Head: The HEAD method is one of the standard HTTP methods used for retrieving metadata about a resource without actually fetching its full representation. It return only the Header of the resourse.
+Note:String str='a'+'b'+'c'+'d';//97+98.. is an Invalid decleration of String object. It will add the Numeric value(A has 10 numeric value) of Character.
+int min=Integer.MAX_VALUE;
+int max=Integer.MIN_VALUE;
+
+Inheritance: 1>Single Inheritance 2>MultiLevel Inheritance 3>Hierchical Inheritance 4> Hybrid Inheritance 5>Multiple Inheritance .https://simplesnippets.tech/inheritance-in-java-types-of-inheritance/
+
+** Mutiple Inheritance doesn't support in Java: The reason behind this is to prevent ambiguity. Consider a case where class B extends class A and Class C and both class A and C have the same method display(). Now java compiler cannot decide, which display method it should inherit.
+									~~~~VALUEOF~~~~
+Syntax: String str=String.valueOf(); valueOf() is use to convert the DataTypes into String.										
+String Buffer Is use to create a Mutable(able to change the Value) String.while StringBuilder will generate a mutabe & non syncronous. 
+string.StringBuilder doesnt create any new String obj result as a time saving. 
+valueOf(iNum); // Returns the string representation of int iNum.
+String.valueOf(sta); // Returns the string representation of the boolean argument.
+String.valueOf(fNum); // Returns the string representation of the float fnum.
+String.valueOf(data, 0, 15); // Returns the string representation of a specific subarray of the chararray argument.
+String.valueOf(data, 0, 5); // Returns the string of charArray 0 to 5
+String.valueOf(data, 7, 9)8; // Returns the string of charArray starting index 7 and total count from 7 is 9
+Following four HTTP methods are commonly used in REST based architecture.
+GET − Provides a read only access to a resource.
+PUT − Used to update a existing resource or create a new resource.
+POST − Used to create a new resource.
+DELETE − Used to remove a resource.
+**Note:A constructor is not an overidden but still it cant be a final but it can be a private so that it can be use inside a class only, 
+A outer class cant be declare as a Static class, decleration of it causes an runtime error, only inner class is static.
+*A final class cant be extended or its child class is not possible, a final method cant be oveeride by the sub classes and final varibale cant be changeable.
+Use of Static KeyWord: static Block can be make to declare only the static variables & Static Methods, if we need to define some behavior (method) or state (field) that will be common to all objects, we define it as static. When ever a single object changes the variable value after that when others objects will access the variable the value of variable will be updated, A static methode can't override.
+Static Block:It is use for changing the default value of static variables, initializing static variables of the class, write a set of codes that you want to execute during the class loading in memory .https://dzone.com/articles/why-an-outer-class-cant-be-static#:~:text=From%20the%20above%20points%2C%20we,complications%2C%20ambiguity%2C%20and%20duplicity. 
+
+**If we define the outer class as static class then it is useless and complex bcz no other super class is present to use the property of that static class. static keyWord is use to access the methode/variable without creating the object, it is use to make a variable as commmon  btw two or more objects. 
+
+*We cant put @Override when a methode is final/static, except these methodes it is optional to use @Override annotation.
+*DownCasting: TypeCasting of parent Object into child object. https://ide.geeksforgeeks.org/9iucddxTbv 
+
+*UpCasting: Typecasting of child object into parent object, Parent p= new Child(); The p object fetch all the methods/variables of (Parent + Override methods of Parent in child class).Except these 2 p cant access the any other methodes or variables of Child class. but in downcasting the child object acces parent ans its own methods.
+
+JIT: It is called as Just-In-Time compiler,It is use to optimize the run time,JIT comiles the bytes code which are having the same functionality at the same time, so it saves the time.
+Concept:javac convert the java files into the .class(byte codes) then JVM load it and run it.
+
+#Constructor Overloading: It is the process of defining the constructor with diffrent parameters and diffrent types.
+Overloading & Overriding:Overloading is the process of defining the same methode with diffrent parameters.
+#override:While overriding is the process of re-defining the parent method in child class.  
+**Method Hiding: When a static method of parent is declared in child class then that child class methode is hidding methode.
+https://www.geeksforgeeks.org/overriding-in-java/
+
+**Multiple Catch Block:We can implement a single try block & multiple catch block, but we can avoid it by using catch(Exception e){} 
+ 
+hashCode()->: It is a methode in java which is called to return the hashcode.This methode is called by default.
+*HashCode: It is an integer which is use in hashing,Every object has its own hashcode. When the Object value is equal i.e obj1.equal(obj2)=true then their hashcode is also same, but if its not equal then obj1 & obj2 has diffrent value.\
+
+Stream in Java: Java contains stream feature to perform the diffrent operation in a simple and faster ways. 
+Their are mainly two types of Operator present in Stream: 1>Intermediate Operator 2>Terminal Operator
+STREAM CONVERSION:List lst=Arrays.asList(arr); lst.stream(); or Stream.of(arr/object),Arrays.stream() https://ide.geeksforgeeks.org/WJTlL3Ftwm; e.g: Stream.of(arrayOfEmps[0], arrayOfEmps[1], arrayOfEmps[2]);
+
+#Intermediate Operator: It is use to convert one stream to another stream. e.g: map(), filter(), distinct(), sorted(), limit().
+1.1> Map(..) It is use to apply the maths function on the stream e.g: List<Integer> lst= arr.toList(2,4,5,6,8,10,0); List<Integer> new_lst=lst.stream().map(x->x*x).collect(Collectors.toList());
+1.2> filter(..) It is use to filter the stream on the defined functions e.g:lst.stream().filter(x->x%2==0).collect(Collectors.toList()), lst.stream().filter(s->s.startsWith("S"))  
+1.3> sorted() It is simply use to sort the stream. e.g:Set sortedSet=lst.stream.sorted().collect(Collector.toSet());  https://ide.geeksforgeeks.org/pXkBiYzY1U
+
+#Terminal Operator: It is use to give the end result. When Terminal get called then no other Intermediate operator can be apply.
+e.g: forEach(),collect(),min,max etc.
+2.1>collect(..)It is use to convert the stream into the collection(Set,List,TreeSet).
+2.2>forEach(..)It is use to iterate the stream. e.g: lst.stream().map(x->x*x).forEach(y->System.out.print(y));, lst.stream().map(x->x*x).forEach(y->y+5);
+2.3>reduce(..) It is use to reduce the stream into the desired ways. e.g: int sum= lst.stream().map(x->x+2).reduce(0,(sum,i)->sum+i);
+**Stream.of(arr) to convert array to Strem.
+Note: It does't modify the source data but manipulate according to the used operator.
+
+*str1.compareTo(str2); or Character_Var1/Character.valueOf('s'/char1).comapareTo(Character_Var2/Character.valueOf('t'/char2));// It return the diffrence of numeric code of str1 & str2. It can be use to sort the string.
+
+forName(),getClass(),.class they are use to fetch the Object of class.
+quick view ->>https://ide.geeksforgeeks.org/LrrkrXYKlu  detailed https://www.javatpoint.com/java-reflection
+
+Serialization & Deserialization: Conversion of object into byte stream is serialization while conversion of byte sequence into object is deserialization.
+Note: Transient keyword is use to avoid serialization of variables.
+
+public void fooBarMethod(String... variables){} variable Argument, dots represents that the methode can takes arguments from zero to multiples of String types.
+
+*IS-A Relation: Wherever you see an extends keyword or implements keyword in a class declaration, then this class is said to have IS-A relationship. Car is a relation with Engine, Animal has a relation with Dog.
+Hash-A relation is a composition. Where we are creating the object of another class inside the class. e.g: Oven has a relation with Kitchen.
+*Composition is feasible to use bcz: 
+1>You can't add to a subclass a method with the same signature but a different return type as a method inherited from a superclass. Composition, on the other hand, allows you to change the interface of a front-end class without affecting back-end classes.
+2>Inheritance access all the properties of parent, So it causes excess recources unlike the Composition.
+
+Polymorphism: Doing the same task in  diffrent 2 ways.
+*Run-Time Polymorphism: (Overriding) Changing the Parent definition inside the child class. It is Called runtime bcz Overloading occur at run time.  
+*Compile-Time Polymorphism: (Overloading)->Loading the same functions with diffrent diffrent arguments. It is called Overriding bcz the compiler determines which method to call based on the number of arguments, their types, and the order in which they appear.
+
+Exception propagation: When an Exception occur then it will search the matching catch block and it will execute it, if not found then it will propagate through the "methode call" and search the respective catch block.If it will not found in the stack of methode call also then it will get terminated in main method. 
+****Note: If an Interface has un-implemented methods then we can give the defintion using the annonymous Interface & Under that interface we can give the definition of functions.https://ide.geeksforgeeks.org/K7cV0gFU99
+
+*If you use Throwable in a catch clause, it will not only catch all exceptions; it will also catch all errors.
+
+Aggregation: It is a Has-a relation ,means class contains Object of another class. https://compiler.javatpoint.com/opr/test.jsp?filename=Circle 
+Note:Aggregation help to reduce the code reuseability,
+Inheritance should be used only if the relationship is-a is maintained throughout the lifetime of the objects involved otherwise, aggregation is the best choice.
+
+Concrete class: The class which is not an Abstract class is called as Concreate class. Also its all methodes are implemented it doesnt contains any unimplemented methodes. 
+
+"String".replace('g','g')=="String";//gives true https://ide.geeksforgeeks.org/CX6rAzYnsd
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~##EXCEPTION HANDLING##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*Order of Exception Execution in catch block: CheckedException >Unchecked Exceptions> General Exception(Exception, Throwable).
+
+*Exceptions are categorised in two main categories:
+Checked & Un-checked Exception: Exception which checked at Compile time is called Checked Exception, while which checked at RunTime is Unchecked Exception. e.g:
+Checked Exception: FileNotFoundException{When file is not present at the given location, when the file is read only but trying to write in it.}, IOException(Occurs when we are doing any IO operations,trying to read/write a protected files), SQLException, ClassNotFound Exception(). 
+UnChecked Exception: Exception which occur at run time e.g: Arithematic Exception,NullPointerException,IndexOutOfBoundException( ArrayIndexOutOfBoundException, StringIndexOutOfBoundException),NumberFormate Exception. 
+
+Override Scenario: Child Method not required to throw any exception.
+1> When parent method have no Exception, then overriden method in child can be define without Exception or With a Unchecked exception but NOT ALLOWED TO THROWS CHECKED EXCEPTION.
+2>When parent method contains Exception then Overriden method can contain the same exception, it may not contain any exception or it may throw an Unchecked Exception But NOT ALLOWED TO THROWS ANY OTHER CHECKED EXCEPTION.
+The rule voilation will cause a Compile time error.
+
+*Diffrence btw the "Exception" & "RunTimeException" Interface: These two are use to define the Custom Exception, When developer wants to declare the custom Exception as Checked Exception then he has to extend Exception else can extend Runtime Exception. Link: https://ide.geeksforgeeks.org/b9db5f5b-9352-4d41-8564-d4aed82a2ff6
+Diffrence btw Exception & Error: 
+*Exception caused by the Code but error is caused by System failure like: lack of memory(StackOverFlow),System Crash,virus attach.
+*Exception is recoverable but error cant be recoverable i.e:Non-Recoverable.
+*StackOverflowError happens when you execute too many methods one inside another (for example with an infinite recursion), which is limited by the size of the stack. OutOfMemoryError happens when the JVM runs out of space to allocate new objects, which are allocated on the heap.
+Customized Exception: Self created Exceptions are called Customized Exception.It extends the Exception.
+https://ide.geeksforgeeks.org/U1jBusLO69 ,https://ide.geeksforgeeks.org/yGXHNOnpE3,https://ide.geeksforgeeks.org/XLyRMkEMvf
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+IntanceOf:Syntax->obj_var instanceOf  -->boolean(true/false); If the object have direct or indirect relation with the Class_Name then instanceof gives true result else false. If obj_var is null then also the result will be false. e.g: https://compiler.javatpoint.com/opr/test.jsp?filename=Test4
+
+Annonymous Class: The class whose name is unknown. It can be acheive by two ways:
+1>By using interface https://ide.geeksforgeeks.org/pflXDEeZ9C, https://ide.geeksforgeeks.org/rbTjZwdveB 
+2>By using Abstract Class. https://ide.geeksforgeeks.org/ycrcv6o5b2
+-- 
+Super KeyWord:It is use to fetch the Parent methods and Constructors from the child, super refer to the class which is immediate parent class object.
+*It is use in methode overidden, it basically diffrentiate the method of parent class and child class.
+e.g: super.parent_methode()->calls the parent methode of name "parent_methode";,super()->calls the default constructor;,super(var)->calls parmetric constructor; https://www.w3schools.com/java/tryjava.asp?filename=demo_ref_super
+Note:Java call the calls the super() inbuild; to call the parent constructor. 
+
+Instance Initializer block: It is a block which is use to initialize the instance variables.It is invoked after the constructor.
+https://compiler.javatpoint.com/opr/test.jsp?filename=Bike8 
+Note: The java compiler copies the code of instance initializer block in every constructor,thats why the constructor calls first than instance initializer.
+
+Diffrence btw the Comparator & Comparable:
+1>Comparator sort the elements by using diffrent parameters of an object, But the comparable can use only to sort the elements in natural Order.
+2>Both are Interface but comparable Override compareTo() methods to sort elements while comparator uses compare().
+3>Comparable sort the elements in natural order. It uses this(return this.variable-obj.var;) to sort the element but comparator uses two object to compare their value. https://ide.geeksforgeeks.org/OsVmJOei4B -->We a natural order sorting is require then go with comparable but when ording need based on the diffrent parameters then go with comparator. At the end we have to return -1 or 1 by comparing the value.
+
+								~~~~~~~~~~~~~~#### JAVA-8 ####~~~~~~~~~~~~
+Java 8 has following additional features:
+1>Lambda Expression:It is a Java8 feature which is use to implement the functional Interface. It reduce the amount of Explicit code, and with the help of Stream API & Lambda Expression we can perform the ||rl execution. So, Lambda expression makes system highly efficient.   
+e.g:(args) -> Class.staticMethod(args), (args) -> obj.instanceMethod(args);, (args) -> new ClassName(args);  eclipse example where we are implementing the functional Interface.
+##LAMBDA EXPRESSION##:It is use to implement the Functional Interface and to reduce the code.
+Syntax: Argument List (int a,int b)/(a,b)->body.
+Student s=(name,id,age)->{System.out.println("Name="+name+"Age="+age+"Id="+id)};
+s.Interface_Function();  //Note: We have to declare a function in Student Interface.
+Lambda on forEach: list.forEach(x -> System.out.println(x)); https://ide.geeksforgeeks.org/Hhzy3Xtg4d
+Note:If an Iterface contains more than one methode then we cant implement with Lambda.
+https://www.javatpoint.com/java-lambda-expressions
+
+2>Stream API:It is a JAVA API which is use to perform the diffrent operation in a less code & in a efficient manner. Stream API doent changes the original data.
+It is of two types.Intermediate Operator & Terminal Operator.
+Link: https://www.tutorialspoint.com/difference-between-intermediate-and-terminal-operations-in-java-8#
+
+3>Default methode:It is use to add new functionality to existing interfaces. It can be overriden in its child class, so we can add functionality according to the requirment.
+
+4>Functional Interface:It is an Interface in which only single Abstract method is present and it may contains static or final implemented method but the non-implemented methodes is only one i.e: an abstract methode or without abstract(bcz bydefault Interface has it) keyword.
+*Supplier,Consumer,
+
+5>Methode Reference: Java Method reference is a Lambda Expression that is used to refer a method without invoking it.
+It is use to refer the method of Functional Interface. 
+**It is basically of 3 types (reference to static method, reference to constructor, reference to instance method).
+1>Static methode Reference:	Class_Name::methodeName(); The methode must be static in this syntax. 
+2>e.g:Collections.sort(lst,ClassName::new);//It will create the instance of class.
+3>refrence to instance method: we can call the method with the help of object of that class. (args)->obj.methodRef(args); M.R: obj::methodRef 
+
+6>Constructor Reference: It is used to refer to a constructor without instantiating the named class.
+
+Collections.sort(lst,obj::methodeRef);  Link:https://www.geeksforgeeks.org/method-references-in-java-with-examples/
+Advantage :It is easy to use than lambda , bcz we dont have to pass any arguments in it. (lst.forEach(System.out::println());
+Filter(Predicate<T>)->Allows selective processing of Stream elements. It returns elements that are satisfying the supplied condition by the predicate.
+
+map(Funtion<T, R>)->It Convert the one element into the another and then return it.
+sorted()-> Sorts the input elements and then passes them to the next stage.
+
+distinct()->It select the elements which are unique. list.stream().distinct().forEach(System.out::println),long Count=list.stream().distinct().count();//count elements.
+
+limit(long N)-> It return the first N elements of List from the given elements.
+
+skip(long start)->Skip the initial elements till the start.
+
+peek()->It is use in debuging purpose. It will not print anything without any Terminal Operator & we can use multiple 
+Syntax: peek(System.out::println);
+peek() inside a single stream,Basically use to print the value.Link1: https://ide.geeksforgeeks.org/Ft3e3wq6Ss Link2: https://ide.geeksforgeeks.org/vhzqxbBO9s
+
+flatMap(mapper)->flatMap(lst->lst.stream());It is use to perform map & flatten(the process of converting multiples list into single list),converts the multiple streams into a single stream. Link: https://ide.geeksforgeeks.org/online-java-compiler/4df55511-6896-4d4f-a680-00d4a528efb3
+///////////////////
+What is the most common type of Terminal operations?
+forEach() -> Useful to do something with each of the Stream elements. It accepts a consumer.
+collect() -> Collects single result from all elements of the stream sequence.
+reduce() -> Produces a single result from all elements of the stream sequence
+count() -> Returns the number of elements on the stream.
+min() -> Returns the min element from the stream.
+max() -> Returns the max element from the stream.
+Search/Query operations
+anyMatch() , noneMatch() , allMatch()...-> Short-circuiting operations.
+Takes a Predicate as input for the match condition.
+Stream processing will be stopped, as and when the result can be determined.
+Iterative operations
+forEachOrdered() - It is helpful to maintain order in parallel streams.
+///////////////////////////////////////////
+*Marshalling: Java Objects to XML, Unmarshalling: XML to java Objects.
+*Boxing {int->Integer} & UnBoxing {Integer->int}: Conversion of PRIMITIVE DATATYPES into Object of wrapper class is autoboxing(boxing) e.g: int to Integer and object of wrapper class to primitive data types is unboxing e.g: Integer to int.
+Type Casting: assignment of one data type values into the others.
+
+Immutable Class in java: If we cant change the content of Object then that types of Class is immutable.Prebuild Immutable Class e.g: String and Wrapper Objects(Integer,Character etc) are immutable Class:
+*In immutable class we have to make class as final & variables as final & private, the class will contains only getter methodes , dont declare setter so that any object cant change the value. Assign the value through parametric constructor. 
+*List Sorting: Link:
+DeadLock: C:\Users\nitsu\OneDrive\Desktop\Coding_Question\DeadLocking
+
+*Overriding the .equals() methode>>Link:https://www.geeksforgeeks.org/overriding-equals-method-in-java/
+* x.compareTo(y); Integer.comapare(x,y);//Assuming both x&y are Integer type.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Dependency injection is a design pattern and technique used in software development to achieve loose coupling between components. It allows the dependencies of a class to be provided from external sources rather than being created within the class itself.
+
+In the context of Spring, dependency injection is implemented using the Inversion of Control (IoC) container provided by the Spring Framework. The IoC container manages the creation and lifecycle of objects (beans) and their dependencies.
+
+In Spring, dependency injection can be achieved in multiple ways:
+
+1. Constructor Injection: Dependencies are injected through a class constructor. The container resolves the dependencies and passes them to the constructor when creating an instance of the class.
+
+2. Setter Injection: Dependencies are injected using setter methods. The container uses reflection to invoke the setter methods and inject the dependencies after creating the instance of the class.
+
+3. Field Injection: Dependencies are injected directly into the class fields using annotations like `@Autowired`. The container scans the class for annotated fields and injects the appropriate dependencies.
+
+4. Interface Injection: Dependencies are injected through an interface that the class implements. The container provides an implementation of the interface and injects it into the class.
+
+By using dependency injection, Spring allows you to decouple the components of your application and promote modular, maintainable, and testable code. It simplifies the management of dependencies and makes it easier to switch implementations or configure different dependencies for different environments.

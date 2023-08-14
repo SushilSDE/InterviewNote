@@ -1,0 +1,49 @@
+*WHERE is use before the Group By.
+
+*SELECT MAX(salary) - MIN(salary) DIFFERENCE
+FROM employees; 
+
+*WHERE and Having work same, but WHERE cant be use with the Aggregate functions, With aggrigate functions we only use HAVING.
+*LENGTH(Column_Name); //It is use to fetch the length of Column_Name content.
+*Query to select first 10 elements from a table.--> SELECT employee_id, first_name FROM employees  LIMIT 10;
+
+SELECT DISTINCT salary 
+FROM employees e1 
+WHERE 4 = (SELECT COUNT(DISTINCT salary) 
+FROM employees  e2 
+WHERE e2.salary <= e1.salary);
+
+*SELECT DISTINCT department_ID FROM employees;--> Use to select the diffrent Employee whose Id is diffrent.
+*SELECT * from employee ORDER BY first_name DESC;
+*SELECT UPPPER(first_Name) 	FROM employee ; 
+*SELECT SUBSTRING(first_name,1,3) FROM employees; //Find the first 3rd 
+*SELECT 171*214+625 as Result; //Calculates the values.
+*SELECT employee_id, first_name FROM employees  LIMIT 10;//use to fetch the 1st N no of records from table.
+*SELECT first_name, last_name, round(salary,2) as 'Monthly Salary' FROM employees;// Round is use to make the value round at perticular digits.
+~~~~~IN~~~~~~~>It is use to check the presence of a particular value from a set of values.
+*mysql> SELECT 2 IN (0,3,5,7);
+*SELECT first_name, last_name FROM employees WHERE (employee_id IN (SELECT manager_id FROM employees));//Find employee who are manager, table contains managerId as well as Emp ID.
+~~~~~~~~~~~~~~
+!=->Not equal operator. <> it is also a not equal oprator, working is same.
+
+Diffrent Types of Joins:Cross Join/Full Join, Left Join, Right Join, Inner Join & Self Join(When a table join by itself).
+*Self Join:When their is a need to combine data with other data in the same table itself then we can use Self Join. SELECT s1.student_id,s1.name FROM student AS s1,student s2  
+WHERE s1.student_id=s2.student_id AND s1.course_id != s2.course_id; Inner Join: SELECT  s1.student_id, s1.name FROM student s1 INNER JOIN student s2 ON s1.student_id=s2.student_id; 
+Note: With self Join we have to use Alliase. '
+
+*SELECT first_name, last_name, salary FROM employees WHERE employees.salary = (SELECT min_salary FROM jobs WHERE employees.job_id = jobs.job_id);//fetching emp Name who has min salary in its JobType.
+LIKE: 'a%' a patern/column which starts from a ,'IT%' a column which starts from "IT". '%a' pattern which end with a , '%a%' pattern contains a in between. '_a%' a found at 2nd position.
+
+*A FOREIGN KEY is a field in one table, that refers to the PRIMARY KEY in another table. To define a foreign key we have to define in the same table
+    CREATE TABLE Orders 
+	(
+    OrderID int NOT NULL,
+    OrderNumber int NOT NULL,
+    PersonID int,
+    PRIMARY KEY (OrderID),
+    FOREIGN KEY (PersonID) REFERENCES Persons(PersonID);  -->PersonID act as a foreign key in Order Table but act as Primary key in Person Table,
+	);
+**One to One, One to Many & Many to Many relation is present in the DBMS.M to M perform with the help of an Additional table. https://medium.com/@emekadc/how-to-implement-one-to-one-one-to-many-and-many-to-many-relationships-when-designing-a-database-9da2de684710
+
+**Select name from employee Where employee.name=(Select Student_name from College ); //We can call the column of a table name with the help of table Name also. like employee.ColumnName.
+

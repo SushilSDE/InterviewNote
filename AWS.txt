@@ -1,0 +1,162 @@
+									~~~~~~~~~~~~~~~~~~~## AWS ##~~~~~~~~~~~~~~~~~~
+S3:Simple Storage Service.
+*S3 is an Object,
+*It contains Key(Simply the name of object),
+*Value(This is simply the data,it is made of sequence of Byte),
+*Version Id(Important for versioning),
+*Metadata(It contains the information of Data)
+There are 6 type of Storage facilities available for S3:
+
+1>S3 Standard:99.99% avaibility,99.9999999999% durability stored redundently across the multiple devices in multiple facilities.
+
+2>S3 IA(Infrequently Acessed)
+3>S3 Intelligent Tiering: According to the Visiting of data, system put the data into most effective low cost tier, without affecting the functionality.
+
+4>S3 One Zone IA(Infrequently Acessed):Data is not accessed frequently and Multiple zone avaibility is not available.
+
+5>S3 Glacier:The retrival time is from 1 min to Hrs.
+6>S3 Glacier Deep Archive:The retrival time is greater than or equal to 12 hrs
+
+S3 storage is charged on the basis of following methode:
+1>Accesbility
+2>Storage Capacity
+3>Request
+4>Storage Management Pricing
+5>Data Transfer Pricing
+
+Bucket: It is a folder of the Storage, It should be globally unique, bcz it uses in the hyperlink
+Horizontal Scalling & Vertical Scalling:
+Life Cycle management: It is use to manage the teir of data at the particular duration.
+
+#S3 Object Lock store the object using Write Once Read many(WORM) model.
+#Object Lock can be applied on individual object or on the bucket.
+#Object locks come in 2 model:governance mode & Compliance mode
+
+governance mode:In this mode the user cant overwrite or delete an object version or alter its lock setting unless they have special permissions.
+Compliance mode: A protected object version cant be overwritten or deleted by any user,including the root user in your AWS account. 
+
+S3 Glacier vault lock:We can specify WORM lock policy and lock for the the future edits.Hence once locked the policy cant be changed.
+
+S3 select :It is use to select a particular amount of data using SQL Query.It basically reduce the cost and increase the performance.
+
+**Load Balancing is used to distribute the service request in AWS.
+**Horizontal Scalling & Vertical Scalling: Adding of resources in the existing resourses is Vertical while adding of new resources in the existing terms as Horizontal Scalling.
+
+login Id:ssushil@virtusa.com 
+PassWord:Masharda99*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+IAM:Identity Acess Management->It is use in application to provide security & Access Control. Identity means verifying the userName & Password then AcessMangement handles the Access Control & Authorization(S3,EC2). In AWS every one first passes through the IAM. IAM is globally it means you dont have to set diffrent2 IAM for diffrent2 reason. It has diffrent Component(Role,User,Group)
+Here User can be a real person who access the AWS account or a program which uses AWS account to perform a task.
+*Policy:A policy is an object in AWS that defines permissions.
+*IAM Role: It allow you to adopt a set of temporary IAM permission. It doesn have any credential or access key, AWS dynamically assign to it.
+Components of IAM: User,Role,Policies & Groups.
+Development Account->Is Trusted while Production Account->Is Trusting. 
+
+EC2(Elastic Compute Cloud): It allows you to deploy virtual server within your AWS environment. It is highly used compute service.
+It can be broken down in the following components: *Amazon Machine Images *Instance Type *Instance Purchasing Option *Tenancy * User Data *Storage Option.
+EC2 Container Service (ECS): This service allows you to run Docker-enabled applications packaged as container across a cluster of EC2 instance.It removes the need for you to manage your own cluster management system by integrating the AWS fargate.
+ECS cluster: It contains the collection of EC2 instances. 
+ECR(Elastic Container Registry): This is a fully managed service that provide a secure location to store and manage your docker images. This allows developer to Push,Pull and manage their library of docker images in a central & secure location.
+Main components used in ECR: *Registry, *Authorization token, *Repository, *Repository Policy, *Image.
+*Docker: Docker is a peice of software that allows you to automate the installation & distribution of Application inside Linux Containers.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Why Cloud: Because setting up a server is very costly, also its maintainace cost is higher & due to fluxuality in users their may be wastage of resorces.
+
+Cloud Computing: It is a remote virtual pool of on-demand shared resorces offering Compute,Storage,DataBase and Network Services that can be rapidly deployed at scale.
+
+Cloud Model:
+IAAS:(Infrastructure as a service): It is a cloud model in which a vendor provides users access to computing resources such as storage, networking, and servers. e.g: AWS,AZURE, Google Compute Engine (GCE).
+
+PAAS:(Platform as a Service):It provides a run time environment, it helps developer to create the web application , test ,deploy & run. Developer need not to worry about the softwares and maintainence, they have to only focus on the logical parts. It support difffrent programming languages(Java,Python) & frameworks (Node.js etc) & DataBase. It makes development fast. e.g: Azure, Google App Engine.
+
+SAAS:(Software as a Service) It is a way of delivering application over Internet. It reduce the effort of Installing & maintaing the application. e.g: DropBox,Microsoft Office, Netflix etc.
+
+Kubernetes: It is an open-source container-orchestration system for automating computer, application deployment, scaling, and management. It was developed by Google.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+List of AWS compute:
+EC2,ECS (EC2 Container Service),ECR(EC2 Container Registry),EKS(Amazon Elastic Container Service for Kubernetes),AWS Lambda, AWS ElasticBeansTalk, Amazon lightSail.
+
+*AWS ElasticBeansTalk: This is an AWS managed service that takes your uploaded web application code and automatically provisions and deploy the required resoursec within AWS to make the web application operational.
+
+Environment in ElasticBeansTalk: **Web Server Environment:It uses when the application manages & handles HTTP requests. 
+Worker Environment: It come into picture when application pulls the data from the amazon SQS queue instaed ofprocessing the HTTP request .
+
+AWS Lambda (Compute Service):It is a serverless compute service that allow you to run your application code without having to manage EC2 instances.
+AWS Lambda come with automatic scaling, built-in high availability, and a pay-for-value billing model.
+**Here Serverless means the application runs on the server only but it is managed by the AWS. Developer doesnt have to worry about the management of Infrastructure.
+
+AWS Lambda charges the Compute power per 100ms of use only when your code is running multiple time.
+Downstream Resources: It is a resorce which are required during the execution of Lambda function.
+Lambda Function:The code you run on AWS Lambda is called a “Lambda function.It is stateless.
+Note: It is a efficient than the EC2, you dont need to maintain any things, only you have to pay for the compute power.
+
+*AWS Batch: It is a set of batch management capabilities that enables developers, scientists, and engineers to easily and efficiently run hundreds of thousands of batch computing jobs on AWS.
+Here Job refers to the Unit of work which is run by the AWS Batch.
+
+*Batch Computing: It is a computing which 
+It has following components:
+JOBs:A unit of work that is to be run by the AWS Batch.
+Job Queues: Jobs that are sheduled are placed into the Job queue until their execution.
+Job Definition: It is use to configure the Job and also define how a job will run.
+Job Scheduling:It takes care of when the job should run & with which Compute environment. Work on FIFO basis , It execute the Job on the basis of their priority.
+Compute Environment: These are the environments containing the compute resources which is use to carry out the job. It is of two types ->Managed(managed by AWS Provisioning,Scalling,termination of Compute Instances) & Unmanaged Env(Managed by user).
+
+Amazon LightSail: It is similar to EC2 which is use for small projects like blogs, small websites. It is a simple, quick and easy to use including a cost effective. You can run multiple Amazon lightSail together and they can communicate with each others & other AWS resources.
+
+Downstream resources – An AWS service, such as DynamoDB tables or Amazon S3 buckets, that Lambda function calls once it is triggered.
+Frontend Architecture: It is SAAS applications which allows 
+Ques & Ans:
+* For a fast processing & a hardware access we have to use the "Accelerated Computing".
+
+Schemaless: They allow us to store documents in any shape we want. 
+
+*Amazon RedShift:
+
+QLDB: It is a serverless database which is use to store a complete history of accounting & transactional data between multiple parties in an immutable, transparent & cryptographic way.
+
+AWS services: SQS-> related to the queuing of messages,SNS-> related to the Alert & Notification of events,SES-> Provide a mean of sending an SMTP messages .
+
+Multi-AZ: It means multiple availibility zone. The use of Multi-AZ is to provide a failover option for RDS. 
+
+* EC2 Instance:The data store in it is temorary. Any restart, termination or stop of system leds to data loss. 
+* EBS (Elastic Block Storage Service): It is a parmanent storage, if the instance is restart, terminated or stoped it doesnt impact the storage of EBS. We can take the copy of whole volume eigther by manually or with cloud Watch. 
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!AWS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+*Public IP address of EC2 Instance will change if the network gets terminated, but the private Id will remain same.  
+*Three types of Load Balancer: Network Load Balancer, Application Load Balancer & Classic Load Balancer.
+				~~~~~~~~~~~~~~~~~~~~~~Elastic BeanStalk~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*It is an fastes and simplest way to deploy your application on AWS
+* Enable you to focus on writing code instead of managing the server configuration.
+*Automatically scall UP & Down your application based on the requirment.
+Environment in EC2: Worker & Server Environment.
+Worker Env: Worker Env handle the background task during resource intensive or time intensive operation.
+Why we need worker: When the client send a time consuming request to server and after that he again send a request to the busy server then the server divert the old request to the worker & accept the  new one, worker complete the request and send a HTTP response to the sever.
+The new request is send inside the SQS message -> SQS Queue->SQS message-> Daemon .Link:C:\Users\nitsu\Pictures\Screenshots\Server-WorkerComm.png
+Server Env:
+
+*Cloud Computing: Cloud computing is the on-demand delivery0of IT resources over the Internet, Instead of buying, owning, and maintaining physical data centers and servers, you can access technology services, such as computing power, storage, and databases, on an as-needed basis from a cloud provider. PAAS,SAAS,IAAS are the types of Cloud Computing. 
+
+*Amazon Cloud Front: It is an AWS Service which is use to reduce the latency. It basically uses an edge location where it stores the frequently accessed data, So when the use request the data the cloud front first search inside the edge location and if it is not available then only it fetch the base location.
+
+Note: We can easly stop/run the Ec2 Instances from the Lambda function, or we can schedule the runnig of our application by using the Cloud Watch Event. But we have to give permission to the Lambda function by creating the policy from the IAM.
+
+*AWS CloudFormation: It is a AWS service which helps you to model & setup your AWS web services So that developer can less focus on managing the resources and more focus on important task.
+
+*AMI(Amazon Machine Image): It is an image of already executable EC2.
+
+*Cloud Trail: It is logging service which is use to keep the log of API calls, we can also be able to identify which user has access the particular AWS services from the AWS Console. It is use to identify the Hacker activities.
+
+*1> EC2 console command line:
+	.yum install httpd-y
+	.sudo su->this command make the user as root user.
+	.yum update.
+	.systemctl start httpd
+	.systemctl enable httpd
+
+*2>	EC2 console command line:
+	.yum update -y
+	.yum install -y httpd
+	.systemctl start httpd
+	.systemctl enable httpd
+	.echo "<h1>Hello AWS This is $(hostname-f)</h1>"> var/www/html/index.html

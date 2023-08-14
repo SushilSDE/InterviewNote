@@ -1,0 +1,128 @@
+							~~~~~~~~~~~~# ALGORITHS & DS #~~~~~~~~~~~~~~~~~
+#Naive Approach: Each solution is generated first and trying every solution one by one and when all will finish only then result will obtain.
+#BackTracking Approach: It is more effecient than Naive,In this approach when an input fails to satisfy the solution then it will be rejected eg:Maize problem solving.
+**Integer to String Conversion:int a=10; String str=Integer.toString(a);// String.valueof(int); Reverse Way: int val=Integer.parseInt(str);
+**long to int conversion: Long l=100200300403; int t=(int)l; double d=3245.324; float f=(float)d;//It converts the double to float.
+*Sort the String: Arrays.sort(str); Note:It Sort the string str without returning the String.
+Inorder Tree Insertion: Link:https://ide.geeksforgeeks.org/3uG6Mxn8MJ
+~~~~~~~~~~
+**Bitonic Array: *The element strictly increasing and after that strictly decreasing. e.g: {1, 8, 18, 5, 4, 2,0}; Link: https://ide.geeksforgeeks.org/Qnkn3TVelG
+*Find the no of Rotation in an array:  Link:https://ide.geeksforgeeks.org/online-java-compiler/2f51a325-84e4-4b45-a120-f79fc901cf20
+*{4,5,6,7,1,2,3} //min. criteria : (arr[mid]< (arr[mid+1]))&& (arr[mid]<arr[mid-1])  Link: https://ide.geeksforgeeks.or=g/obCGjMqpzR 
+				  //max. criteria :(arr[mid] > arr[mid+1]) && (arr[mid] >arr[mid-1]) 
+** {1,8,10,11,17,7,5,3} If we have to check the existance of a no. then first we have to find the Bitonic point,then pass the half arrays in Binary Search operation. Link: https://ide.geeksforgeeks.org/cLwEKX1RKJ
+~~~~~~~~~~
+*Longest Common Subsequence(DP): https://www.geeksforgeeks.org/longest-common-subsequence-dp-4/
+*Longest Consicutive Subsequence: We have to find out the elements (arr[t] -1) is not present in the array. Link: https://www.geeksforgeeks.org/longest-consecutive-subsequence/			 
+*smallestpositiveMissing from an Array//https://ide.geeksforgeeks.org/1696f093-8b68-430f-8ade-c6a29f8b066e
+
+*Size of 2d Array: int rowSize=arr[0].length; int columnSize=arr.length;
+*Conversion of List into array-> int arr[]=new int[lst.size()]; lst.toArray(arr);
+*Arrays.sort(arr, 2, 8); Start index is included and end point is excluded.
+*lst.sort();/ lst.sort(new StandardComparator());
+Arrays.reverse(arr);  not working --> Collections.reverse(Arrays.asList(arr));
+**##Program to find the duplicates##?????????
+for(int t=0;t<n;t++)
+{
+	arr[t]+=arr[t]%n;
+}
+for(int i = 0; i < numRay.length; i++) 
+{
+   if (numRay[i] >= numRay.length * 2) 
+   {
+    System.out.println(i + " ");
+   }
+}
+*Reverse a LinkedList->: C:\Users\nitsu\Documents\Interview_Note
+*Dutch Flag Problem:	https://ide.geeksforgeeks.org/RIY3yu3Okz : Take two pointer, one wll handle 0&other will 2.
+*Determine whether a linkedList contains loop or not: https://ide.geeksforgeeks.org/online-java-compiler/44e8776f-bee5-4cc2-b332-fcaa4b3282dc
+**sort the Map according to its Value & Key. https://www.geeksforgeeks.org/sorting-a-hashmap-according-to-values/
+Link1:https://ide.geeksforgeeks.org/wO1IsS108y  Link2: https://ide.geeksforgeeks.org/online-java-compiler/b0ee1cb8-3140-4289-8795-ba368c53c1d2
+** To find the kth or k largest elements in an array,to find the kth or k smallest element in array: We use natural Order PriorityQueue. 
+for(int t=0;t<k;t++)->pq.add(arr[t]);
+for(int t=k;t<n;t++)-> if(pq.peek()<arr[t])->pq.poll(),pq.add(arr[i]); //////////
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**SubArray with sum equal to zero:
+**O(n)->Iterate through the array and continue sum each elements when the sum repeates itself then their exist zero sum.
+**Max. product in an Array: Link:https://ide.geeksforgeeks.org/online-java-compiler/ea5badc1-fa0a-49ce-a94d-ceb8ec9ef9e6
+Concept: 3 scenario will generate, arr[i]==0,arr[i]>0&arr[i]<0;, take two poingter(min_end, max_end);
+*Max. Sum of an Array: Link: https://ide.geeksforgeeks.org/online-java-compiler/3f24e7bd-4154-49d3-ac8e-9f3ab3e2f65d
+Check the prev_Sum is greater or less than the current index Element.
+*No. of ones In a binary Representation
+Link:https://ide.geeksforgeeks.org/c6385147-a675-4d9b-8717-5f22c0233477
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**We can check the Odd && Even of a no. by doing the bit manupulation. If (no. & 1)==0 it is Even else It is odd. i.e 1east bit of even no. contains 0 while odd contains 1.
+**Find the max element in a Bitonic Array: 	https://ide.geeksforgeeks.org/ck10gSy167
+**Subsequence Sum problem(Sliding method): Here we have given a set of array & a value, we have to find the sequence of an array whose sum equal to the given value. Link: https://ide.geeksforgeeks.org/yYnflVFHfJ
+**SubSet Sum problem(using Dp & Recur.): We have given an array & particular value now we have to find the subset of an array whose sum equal to the value. Link: https://ide.geeksforgeeks.org/mIk93Srxb7 (DP) Link:https://ide.geeksforgeeks.org/online-java-compiler/55134d05-2fc1-4174-97ed-aba3ac060f55
+**Kth-Partition: We have to partition the array into kth equally part. Link: https://ide.geeksforgeeks.org/z03Hf0G1ab
+**3-partetion Problem: We have to partition the array equally in 3 part. Link: https://ide.geeksforgeeks.org/G5h79M0fEp	
+**FloodFill Problem: Here we have a maze and it contains "1". Find the path through which we can reach at the end(arr[m][n]). 
+##Rule:We cant traverse through the path where "1" is present. Link: https://ide.geeksforgeeks.org/chhFHOqe5c
+
+								 ###*** BackTracking ###***
+*Rat in a Maze: Link:https://ide.geeksforgeeks.org/5c965b5e-576d-490b-9743-0b179039f1cf
+*Knigth Problem:We have to enter the no of moves in a 2d array, max. no of moves should be n*n. Link:https://ide.geeksforgeeks.org/ys0ADOiXtm
+*N Queen Problem: A queen can move upper-left diagonal,upper-right diagonal, lower right & Lower left till its end and it can move Vertically & Horizontally. Link: https://ide.geeksforgeeks.org/m90Q6qCciJ
+**Triplet SubSet Sum:We have to select the triplet from 1 to n such that the sum of triplet must be equal to the given value Link:https://ide.geeksforgeeks.org/JrDFSeRXRW
+/smaller than or equal to the given value. Link:https://ide.geeksforgeeks.org/vZBEO3zT9I
+
+*PrintKeyPad Combination: https://ide.geeksforgeeks.org/X54PHZ3r3h
+*No. of ways to climb a Stair: https://ide.geeksforgeeks.org/Vh6hAELGuY constraints: The steps can be taken in multiple ways: 1,2,3 etc.
+*Print subsequnce of a given String: Concept-->First we have to choose a single string and then we have to discard it in the ans: Link:https://ide.geeksforgeeks.org/Mp2Us3kCqI Note: It is working on gfg ide but gives indexOutOfBound in Eclipse.
+
+**We can find the time complexity of a recursive function which depends on the parameters by inserting a int count variable which we have to increment inside the function. The final increment of that count gives an idea of time compelexity of that no.
+**We can decrease the time complexity of nth PowFunc(int n, int m){} by applying the following technique :-> if(m%2==0){return PowFunc(n*n,m/2)} // (n^2)^(m/2). Link:
+else return n*PowFunc(n,m-1); //n*n^(m-1).
+ 
+**Interpolation Search:Interpolation search is an improved variant of binary search where the mid index =lowIndex+(highIndex-lowIndex)/(arr[highIndex]-arr[lowIndex])*(x-arr[lowIndex]);
+where x is the value which need to be find in the array, here the given array is uniformaly distributed values. Link: https://www.geeksforgeeks.org/interpolation-search/
+
+								###*** SORTING TECHNIQUE ***###
+**QUICK Sort: O(n^2) In this sorting algorithm, we have to select the pivot element , on the left side values are lesser than the pivot and on the right side value are greater. After seprating the array on pivot the elements were divided into two parts.Each parts were send as an input to the Quick sort.
+We can choose 3 types of pivot in Quick sort,In our case we were choosing last element as a pivot element 
+Algorithm: https://ide.geeksforgeeks.org/1zKsWGzr9Q, Code Link2: https://ide.geeksforgeeks.org/4QDQvraCbk
+
+*Merge Sort: Splite the array element at mid between left & right array, pass both the part in MergeSort after that Merge both the parts. In merge function takes extra array for left,right and a combination of both left & right.
+Note:Every function will return the void. If we will not change the argument then without returning any thing we will get the modified array. Link:https://ide.geeksforgeeks.org/vmKmiCG4W6
+
+*Selection Sort:In this algorithm we have to select the element and than we have to compare the remaining elements while iterate the whole array. This algorithm collects the minimum element at the starting point in its first iteration. Link:https://www.javatpoint.com/selection-sort.  Code_Link:https://ide.geeksforgeeks.org/hruk7vpKuv
+
+**Insertion Sort: In this sorting technique the array is divided in two sub arrays. The first sub-array will be in sorted order. Link1:https://www.javatpoint.com/insertion-sort Code_link2:https://ide.geeksforgeeks.org/IkvXb9vCI7
+
+**Bubble Sort: In the first iteration it gives largest element at the end. Select the two element and make SWAPP() if 1st one is greater than the 2nd. Do this from starting to the end
+Link1:https://www.javatpoint.com/bubble-sort  Code_Link:https://ide.geeksforgeeks.org/ITz2zi9sHy
+
+**Heapify:It is the process of rearranging the heap to maintain the heap property.
+
+							###***Dynamic Programing***###
+**Min.cost of a maze:We have given a maze and travelling cost ,we need to find the min. cost to taravel from top left to bottom right. Link: https://ide.geeksforgeeks.org/WG0pCrGW3f,Link2:https://ide.geeksforgeeks.org/CGHrD5C6vZ
+**Max. GOld Collection in a Mine:A person can start diging only from horizontal & can reach at the end. We have to determine the path through which a max no of gold can be reached.Link: https://ide.geeksforgeeks.org/xRMlNlRXHv
+*Climbing Stairs With Variable steps:We have given an array which contains the no of jumps taken from that index. Link:https://ide.geeksforgeeks.org/juWzVhLIDI
+*Climb Stairs with all steps:https://www.geeksforgeeks.org/climb-n-th-stair-with-all-jumps-from-1-to-n-allowed-three-different-approaches/
+**Target SubSet Sum: We have given a set of array and a sum, our task is to determine whether the sum of subset is equal to given sum or not.     	Link:https://leetcode.com/playground/kbfoC4EL  	
+*Climb Stairs with min path:https://ide.geeksforgeeks.org/zV6uCNWFXv
+**Coin Change:We have given diffrent coins as an element of Array and a sum value,the coins supply is unlimited, Our task is to find the combination of coins which results equals to sum. Note: Here Permulations doest make any sense. e.g: arr[]={2,3,5},sum=7,Ans={[5,2],[2,2,3]} Not Exist(permutation):{[2,5],[5,2]}
+**0-1 Knapsack: We have given a capacity of bag and the arrays which contains the weigth of element and value of the element. We have to fill the bag in such a manner that result a maximum value.Find the maximum value. Link: https://ide.geeksforgeeks.org/2RPWeDaOJ9
+**Unbounded Knapsack: w[]={2,3,5}; n[]={10,15,18}; Link:https://ide.geeksforgeeks.org/HIxW0GZFAn
+**Binary Strings with no consecutive 0's: We have given the n no. of binary digits, our task is to find the diffrent combination of 0 & 1 such that  Link:https://ide.geeksforgeeks.org/eoUw8FiHyF Video Link: https://www.youtube.com/watch?v=nqrXHJWMeBc&t=640s
+**Given buildings & space we have arrange then in a Queue such that no two building are consecutives. Link: https://ide.geeksforgeeks.org/f67SQ0GdGL 
+**No of ways traverse the maje from top left to bottom right: Link:https://ide.geeksforgeeks.org/7ba0a73a-056d-4e64-a4f1-3c0e069c7a14
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+##Binary Search:Best Case Time Complexity of Binary Search: O(1), Average Case Time Complexity of Binary Search: O(logN), Worst Case Time Complexity of Binary Search: O(logN).
+**Space Complexity of Binary Search: O(1) for iterative, O(logN) for recursive.
+**We cant apply binary search on a linked List.
+
+##Apriori Algorithm:It is an algorithm which is use for finding frequent itemsets in a dataset for boolean association rule. Name of the algorithm is Apriori because it uses prior knowledge of frequent itemset properties.
+Apriori Property–>All subsets of a frequent itemset must be frequent,If an itemset is infrequent, all its supersets will be infrequent.
+Note: This Algorith is used to improve the level-wise search. Vide_Link:https://www.youtube.com/watch?v=WCK09hVXI9M&t=5s && https://www.youtube.com/watch?v=IVlfuA4LdrU Link3:https://www.geeksforgeeks.org/apriori-algorithm/
+
+**Maje Path with Obstacle: Link: https://ide.geeksforgeeks.org/YR3dnTZZTh https://ide.geeksforgeeks.org/NFUTzz3iNp
+**Count A+ B+ C+ Subsequences: 
+											~~~~~~~~~~~~~~#### TREE ####~~~~~~~~~~~~
+*Construct Tree from Inorder & PostOrder--> Link:https://ide.geeksforgeeks.org/niH3sE5w6O
+*Construct Tree from PreOrder & PostOrfer--> Link:https://ide.geeksforgeeks.org/Pnlu95xPhH
+*Construct Tree from Inorder only--> Note: The maximum element of the inorder must be the root of tree. So partetion left & right tree from the max. element of Tree. Link: https://ide.geeksforgeeks.org/tmlH5FMBkL
+*
+											~~~~~~~~~~~~~~#### Recursion ####~~~~~~~~~~~~
+*Print the diffrent combination of "ABC" string: Link:https://ide.geeksforgeeks.org/YJqlE0K2Xi

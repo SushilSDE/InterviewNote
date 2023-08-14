@@ -1,0 +1,201 @@
+								~~~~~~~~~~~~~~~Spring Boot(Spring Framework + TomCat Server)~~~~~~~~~~~~~~~~	`  
+Diffrence Btw @RestController & @Controller:
+Note 1: We can run the JAR file of Spring Boot Application by just opening the jar location inside the cmd & by using the Java -jar Jar_File_Name.
+1>@RestController bydefault using @Controller & @ResonseBody, So we dont need to declare @ResponseBody on the methode level.
+2>Note:We can also use the @Controller in Sping Boot but in that case we have to use @ResponseBody on method level for declaring a methode.
+*<Parent> tag is use to manage the version of dependecy, means we dont have to worries about the versions of Dependencies, also it provides by default jar files to maven and 
+*spring-boot-starter-parent-> It is use to provide the default configuration for the application.
+Diffrence btw @RequestBody & @ResponseBody: Link:https://javarevisited.blogspot.com/2022/08/how-to-use-requestbody-and-responsebody.html
+*## <<@RequestBody>> 
+1.1>>Accept the JSON from Client(Postman) & internally it converts into the Java Object which is also called deserialization. It always work with the @PostMapping.
+*##<<@ResponseBody>>
+2.1>>Send the response in JSON,XML or Simple Text Format to client.
+2.2>>It tells the controller that the HTTPResponse will be the part of JSON. 
+*Life Cycle of Bean: https://www.tutorialspoint.com/spring/spring_bean_life_cycle.htm
+#@RequestMapping: It is a general annotation which is use for PUT,GET,POST etc. HTTP methode.
+@GetMapping: is use for HTTP GET methode similarly, @PostMapping: is use for HTTP Post methode.
+
+*    @GetMapping(value="/products/{id}",produces=MediaType.APPLICATION_XML_VALUE)
+    public @ResponseBody Product fetchProducts(@PathParam("id") String productId){
+           return products.get(1);
+    }
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+Terms In Spring Boot:
+*Starter Dependency: This is the main dependency which contains more than 50 sub-dependencies. Instead of adding all the dependency developer need to add only the single main dependecy.e.g: SpringBoot-Starter-WebApp, SpringBoot-Starter-JSON etc.
+@EnableAutoConfiguration(exclude= {ClassName_Which_We_WantTo_Exclude.class}).
+#ResponseEntity(): It contains the Body(Contain content), Header(Key, Value) & Status(Ok,error) of HTTP Response.
+Note:If we want to stop auto-configuration in Spring boot then use "exclude" annotation to disable the auto-configuration.
+
+Diffrence btw POST and GET method:(https://www.javatpoint.com/get-vs-post) is that GET carries request parameter appended in URL string while POST carries request parameter in a message body.
+
+Advantages of Spring Boot over Spring:
+*It automatically configure the Dependencies version which reduce the class loader error.
+*It reduce the use of dependencies as compare to Spring. e.g:SpringMvc dependencies: In springBoot only single "Spring-Boot-Starter-Web", work but in spring(Json,WebMVC,MVC etc are required to add.
+*It has an embedded tomcat server.
+*It automatically configure the application without the use of xml file. 
+*It provide the Actuator facility which helps to monitor the health of Application.  
+*It contains diffrent annotation which help to make developent easy and Fast.
+
+Disadvantages of SpringBoot: It contains starter dependencies thats why it used a lot of resources bcz starter dependency itself contains multiple sub dependencies.
+*ObjectMapper: It is use to convert the Java to JSON and JSON to Java Object.								
+@Component: This is a general-purpose stereotype annotation indicating that the class is a spring component. 
+It helps the Spring to SCAN the class which is annotated as @Component without using any explicit Code.
+@Configuration: Annotation marks a java class as a bean so the component-scanning mechanism can pick it up and pull it into the application context and inject any specified dependency into that class. 
+*Instead of using this developer uses the {@Service, @Repository, @Controller} bcz these annotation make sense. They all act same like @Component, bcz all uses @Component as a meta-annotation.
+@Repository: These annotation is use to make a class as a DAO class.
+
+*@Autowired Annotation: It is use to assign a correct dependency to the Spring Container. 
+Working Principal: It pick the classPath and fetch the dependency and automatically inject the dependency.
+
+*If the name of class is not same as the name of the Table then we have to use the @Document(value="tableName") else bydefault the spring mapped the Collection and the Class;
+
+**Spring Boot auto-configuration: Attempts to automatically configure your Spring application based on the jar dependencies that you have added.(It automatically configure the Spring Application with the jar dependencies which we have added). 
+You need to opt-in to auto-configuration by adding the @EnableAutoConfiguration or @SpringBootApplication annotations to one of your @Configuration classes.If we will miss the decleration then it will through exception.
+
+@Id annotation is use to make varaible as a primary key in DataBase.
+**@AllArgsConstructor,@NoArgsConstructor is use to declare the Parametric Constructor and ByDefault Constructor.
+**@Required annotation: In spring is a method-level annotation applied to the setter method of a bean property and thus making the setter-injection mandatory. This annotation indicates that the required bean property must be injected with a value at the configuration time.
+**@Data is a convenient shortcut annotation that bundles the features of @ToString , @EqualsAndHashCode , @Getter / @Setter and @RequiredArgsConstructor together: 
+@GeneratedValue: Use to make a variable as an auto-Increment in MongoDb.
+
+**@PathVariable: It is used to extract the values from the URI.
+1.1>@GetMapping("/api/employees/{id}/{name}")
+@ResponseBody
+
+public String getEmployeesByIdAndName(@PathVariable String id, @PathVariable String name)
+
+1.2@GetMapping("/api/employees/{id}")
+public String getEmployeesByIdAndName(@PathVariable String id)
+
+1.3@GetMapping("/api/employees/{id}")
+public String getEmployeesByIdAndName(@PathVariable("id") String diffId)-->If we are using the arguments of path variable diffrent than the URI name.
+
+**@Repository- The repository is a DAOs (Data Access Object) that access the database directly. The repository does all the operations related to the database.
+Note: After writing the dataBase's table we have to save it.
+##Parameters in Spring Boot: @ResponseBody,@RequestBody, @RequestParam,@PathVariable.
+URI of @PathVariable is like:http://localhost:8080/{name}.
+@RequestParam:http://localhost:8080?name=sushil. for mutiple param:http://localhost:8080?name=sushil&age=12&salary=2222
+public interface ChangedDetailsRepository extends MongoRepository<ChangedDetails, ObjectId> -->(Parameter names which will be required in the following methods).
+{
+	public ChangedDetails findByParentIdAndFileName(ObjectId parentId, String fileName);
+
+	public List<ChangedDetails> findByParentId(ObjectId parentId);
+	
+	public List<ChangedDetails> findByFileName(String fileName);
+
+	public Long countByStatus(String string);
+	
+	public Long countByParentId(ObjectId parentId);
+}
+
+##we can use @RequestParam to extract query parameters, form parameters, and even files from the request.
+**public String getFoos(@RequestParam String id) {
+    return "ID: " + id;
+}
+
+Diffrence btw PUT & POST:(POST is use to create the resource & PUT is use to update the resource). PUT request is Idempotent means we can call PUT multiple time and we will get the same o/p, but in POST multiple calls will get multiple values. 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			AOP(Aspect Oriented Programing)
+The diffrent layers of Spring Framework need same type of Aspects (Logging,Security etc) which is also called crossCutting Concern. If we add the extra Aspects inside it self then the code will be bulky which cause difficulty to maintain.
+So with the help of AOP's Spring frameWork we can handle common functionality(cross-cutting) at a single point.
+
+##There are two benefits of aspects:
+
+First, the logic for each concern is now in one place instead of scattered all over the codebase.
+Second, the business modules only contain code for their primary concern. The secondary concern has been moved to the aspect.
+*IOC (Inversion of Control): It is use to injects dependencies into an object and make it ready for our use, It create the Object, Wire them, Configure them and manage their complete Life Cycle till the distruction. IoC uses XML file to configure them.
+>>>Application Context and Bean Factory are the two types of IoC. 
+
+		~~~~~~~~~Email Send by Spring Boot~~~~~~~
+Note:In Intervention Fault Project we are triggering the mail through Shell Script, SMTP(Simple Mail Transfer Protocol), ProcessBuilder.		
+**spring-boot-starter-mail dependency is used to send mail from spring boot.	
+**MimeMessage message = new MimeMessage(session); Is also one of the methode to send the mail.
+			
+	   STEP 1>Properties properties = System.getProperties();
+			2>properties.setProperty("mail.smtp.host", host);
+			3>Session session = Session.getDefaultInstance(properties);
+			4>MimeMessage message = new MimeMessage(session);
+			message.text();
+			message.addRecipient(Message.RecipientType.BCC, new InternetAddress(bccRecipient));-->BCC
+			message.addRecipient(Message.RecipientType.CC, new InternetAddress(ccRecipient));-->CC
+			message.setContent(messageBody,"text/html");
+			message.setFrom(new InternetAddress(from));
+			message.setSubject(subject);
+			Transport.send(message);-->Message sent
+			
+Logger:logger.info("this is a info message");
+      logger.warn("this is a warn message");
+      logger.error("this is a error message");
+~~~~~~~~~~~~~~
+@ModelAttribute:It can be used either as a method parameter or at the method level.
+It is of two type: Methode level & parameter level.Methode level @ModelAttribute will execute first than @RequestMapping.
+We can fetch the parameter of JSP directly by using the getter of Model class i.e user.getId(),user.getName() etc. 
+Note: We can fetch the value in Jsp by using only ${msg}, here msg is obj which contains info of ModelAttribute.
+~~~~~~~~~
+@Valid :It applied on the Object{@RequestParam @Valid User user}
+*@min(size=5)
+private String name; 
+
+@Autowired: *It is a spring annotation which is use to INJECT THE OBJECT DEPENDENCY IMPLICITLY. It internally uses the setter or Constructor injection.
+*It only use to inject the reference type we cant use it with primitive type to inject their dependencies. 
+
+*This annotation allows us to implement constructor-based, field-based or method-based dependency injection in our components.
+
+~~~~~~~~~~~~~~It can be use with the properties,Setter & Constructor. When a service is created then the spring inject the property (general use in our project), When we @Autowired the Constructor then its spring inject~~~~~~~~~~~~~~~~
+
+**Dependency Injection: It is a design Pattern which is use to remove the dependency of an Object.
+It can be implemented in two ways:
+1>Constructor,
+2>Setter Methode.
+Dispather Servlet: It accepts all request of MVC and then sends the request to diffrent components.
+
+	****Annotation in Spring Boot Application****
+@SpringBootApplication:
+*@EnableAutoConfiguration: It enable the Auto Configuration.It scan the class Path and find the library,try to fetch the best configuration & finally configure all such bean. Its logic is implemented in spring-boot-autoconfigure.jar.
+@Configuration :It marks the class as a source of bean definitions for the application context.
+@ComponentScan(use to scan a Package): It is use with @Configuration to scan the package which is passed as an argument, if nothing is defined then it says to scan the current package.Isko ham issliye use karte hain bcz sometimes we dont have a complete information of bean , so we have complete it by scanning othet packages also.
+
+JDBC Template: Update(String Query)->U, Query(String Query)->It is use to fetch the record data & Execute(String Query)->Use to perform DDL(commands that can create and manipulate the structures of a database) query.
+
+*Starter Template: It is a template which contains a collection of all dependencies which is needed to start a functionality. Lets assume if we want to create a WEB_MVC application then we have to add all required dependencies but by using "Spring-boot-starter-web" dependency we dont have to add all dependencies and its version , starter will take care of all.
+
+Note:TomCat server is already embedded in the Spring Application, by using <exclusion> tag you can remove the TomCat. Add another DataBase Dependencies.
+@SpringBootApplication: It has internally 3 annotations(@EnableAutoConfiguration,@COnfiguration & @ComponentScan) It internally scan the config Class & files and load in into the Spring Context,
+									~~~~~~~~~~~Spring Actuator~~~~~~~~~~~~~~
+*Spring Actuator: It is use to monitor the health of Spring Application. Dependency is "Spring-Boot-starter-Actuator". Its bydefault port is 8080:
+*If we want to change the bydefault actuator port then we have to define a "management.port=XXXX" in application.properties file.
+URL: https://8080/actuator/...     			Link: https://www.javatpoint.com/spring-boot-actuator
+
+*Spring Configuration annotation indicates that the class has @Bean definition methods. 
+So, Spring container can process the class and generate Spring Beans to be used in the application.
+
+1>/health-> It will return the health status as UP/Down. 
+2>/beans-> It will return all the beans which are used in the application.
+3>/env-> Returns list of properties in current environment.
+4>/info: Gives the information about the project.
+5>/configprops, /cache, /refresh
+*To see the result of any Spring Application we have to add the dependency of Actuator(spring-boot-starter-Actuator) & "Spring Data Rest HAL Browser", then run the application using same local host , to see the actuator use the URL: https://8080/actuator/
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*@Qualifier: It is used to resolve the Autowiring conflict, when there are multiple beans of same type. This annotation can be used with the class & methods, If we are using it with the Class then with @Component annotation we have to use it, but for methods @Bean.
+
+*@Primary specifies a default and can serve as a substitute for @Qualifier.
+
+Link: https://www.boraji.com/spring-4-qualifier-annotation-example
+Article Link: https://www.stackchief.com/blog/%20%40Qualifier%20Example%20%7C%20Spring%20Boot
+
+*@JsonProperty(value="Value")-> This annotation is use at the Serialization & Deserialization. It allows developer to use the Json with diffrent name.
+String var;
+Syntax of MongoDb: MongoRepository<Person, String> i.e: <ClassObject,ObjectType>.
+#Mongo connection
+spring.data.mongodb.host=localhost 
+spring.data.mongodb.port=27017
+spring.data.mongodb.database=getafixui
+Q>.Which of the following property should be used in the application.properties to show sql on the screen?
+#spring.jpa.show-sql=true.
+
+
+
+
+
+

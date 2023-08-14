@@ -1,0 +1,20 @@
+													~~~~~~~~~~GIT~~~~~~~~~~
+What is GIT?-> GIT is a software which is use to colaborate the source code at the Software Development time. 
+Task Duable in GIT:
+1.1>Create repository
+1.2>Parallel Development
+1.3>Making Changes
+1.4>Syncing Repository.
+
+# Task Push a Local folder to the GITHUB repository:
+Step1: Download the GIT inside the System.
+Step2: Open the GIT Bash in the folder which you want to upload in the gitHub.
+Step3: Enter "git init" to initialize the folder inside the git.
+Step4: "git add ." this will add all file of the folder inside the repository.
+Step5: git commit -m "message for the commit"
+Above are the steps to push the folder to local repository. Now push to GitHub repository.
+Step6: Create repository in GITHub and enter the SSH key in the "git remote add origin PASTE_SSH_KEY_OF_CREATED_REPO".
+Step7: git push origin master/main --force
+Step8: git status //this will give the "On branch master nothing to commit, working tree clean" message.
+
+From Step1 to 8 will reflect the folder inside the Git Repository.

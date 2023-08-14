@@ -1,0 +1,58 @@
+								~~~~~~~~~~~~~~~~~~#Project Question & Ans#~~~~~~~~~~~~~~~~~~~
+This project is singlet/monolithick Architecture not a microservices.
+*Spring Version: 5							
+*Angular Version:8, 
+Java Version :8 , 
+Server: TomCat
+
+Dependency: 
+spring-boot-starter-WEB
+spring-boot-starter-MONGODB
+spring-boot-starter-JSON
+spring-boot-starter-Mail
+spring-boot-starter-SECURITY
+spring-boot-JNIT
+
+*Default Dependency of Spring Boot is: spring-boot-starter & spring-boot-starter-test.
+
+#Diffrence btw SOAP(Simple Object Access protocol) & REST(Representational State Transfer):
+*SOAP is a "Simple Object Access protocol" where as REST is a "Representational State Transfer".
+*Soap uses much heigher bandwidth than rest.
+*Soap only works with XML where as rest can work on Json,XML,Plain text,HTML.
+*Soap is a protocal where as Rest is an Architecture.
+*Soap cant use the Rest but Rest can use it.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+@AutoWired
+RestTamplate restTamplate;
+
+this.restTamplate.getForObject("URL_of_OtherMicroservices",Object.class);
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~##DESIGN PATTERN ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+Design Pattern: It is software template or a description to solve the software problems which occur during the design pattern.
+List of Design Patterns:
+1>Creational Design Patterns: It conserned with the methode of creting Object.
+2>Structural Design Patterns: It deal with the composition of classes & objects which form larger structure. 
+3>Behavioral Design Patterns
+4>JEE Design Patterns. It is conserned with the providing solution to the Java EE based application. 
+ *MVC Design Pattern, Dependency Injection Pattern, DAO Design Pattern, etc.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*Hibernate:It is a Java frameWork which is use to interact with the Database. It is a lighweight, ORM tool.
+ORM(Object Relational Mapping):It is a programming technique which is use to mapped the Object & Variable into the Data of DataBase.
+Plz note that the ORM uses the JDBC API to interact with the DataBase.
+
+*Why Maven ?: Maven helps the developer to add the dependency automatically in the project.
+Note: To make the Project as a Hibernate project we have to add the Dependency of Hibernate "hibernate-core".
+
+Note:To create the Maven Project using Eclipse, first we have to choose the "Catalog" as internal & We have to add group id/Artifact Id after clicking on the Finish button, We will get a Maven Project.
+
+*YML is more prefered over XML bcz XML is a mark-Up language and yml supports data formate.So data formate looks more clear than the xml. 
+
+*** We have to create one "hibernate.cfg.xml" configuration file:
+<!DOCTYPE hibernate-configuration PUBLIC 
+	"-//Hibernate/Hibernate Configuration DTD 2.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-2.0.dtd">
+	
+Common Annotation of Hibernate:
+*@Entity: It is use to mark any class as an Entity.	
+@Table:Work same as the @Document(value=" ") in Spring Boot. It come in use when table name & the entity class name is diffrent.i.e @Table(value="EMPLOYEE") public class Employee{}.
+@Column:It is use to map the Table column name with the Parameter name.
+@Transient: It will not allow the field to save in the database. i.e: @Transient("name") String name;
