@@ -12,10 +12,10 @@ There are 6 type of Storage facilities available for S3:
 2>S3 IA(Infrequently Acessed)
 3>S3 Intelligent Tiering: According to the Visiting of data, system put the data into most effective low cost tier, without affecting the functionality.
 
-4>S3 One Zone IA(Infrequently Acessed):Data is not accessed frequently and Multiple zone avaibility is not available.
+4>S3 One Zone IA(Infrequently Acessed): Data is not accessed frequently and Multiple zone avaibility is not available.
 
-5>S3 Glacier:The retrival time is from 1 min to Hrs.
-6>S3 Glacier Deep Archive:The retrival time is greater than or equal to 12 hrs
+5>S3 Glacier: The retrival time is from 1 min to Hrs.
+6>S3 Glacier Deep Archive: The retrival time is greater than or equal to 12 hrs
 
 S3 storage is charged on the basis of following methode:
 1>Accesbility

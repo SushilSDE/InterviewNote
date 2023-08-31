@@ -8,7 +8,7 @@ Server: TomCat
 Dependency: 
 spring-boot-starter-WEB
 spring-boot-starter-MONGODB
-spring-boot-starter-JSON
+spring-boot-starter-json
 spring-boot-starter-Mail
 spring-boot-starter-SECURITY
 spring-boot-JNIT

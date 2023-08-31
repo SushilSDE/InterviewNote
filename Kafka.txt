@@ -1,15 +1,16 @@
 										~~Kafka~~										
 *Kafka is a "publish-subscribe" based fault tolerance messaging system. It is fast, scalable and distributed system.
 there is a single producer and mutliple consumers.
+
 #Diffrence btw RABBIT MQ & KAFKA:
 *After deliverying the messages in RABITMQ messages are deleted but it is not deleted in kAFKA bcz multiple consumers are linked with the Single producer.
 * Single producer & single consumers is present in RabitMq unlike KAFKA.
 *For small devilery of messages we use RABITMQ, but for large system we use kafka...memory limit(1MB).				
  Diffrence btw rabbit Mq & kAFKA:
 
-*Layers Present inside the Apache Kafka is: Cluster->Brokers(atleas 3 brokers)->Topics->Partetions.
+*Layers Present inside the Apache Kafka is: Cluster->Brokers(atleas 3 brokers)->Topics->Partitions.
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~To Start Communication btw Producer & Consumer using cmd~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~To Start Communication btw Producer & Consumer using cmd~~~~~~~~~~~~~~~~~~~
 Step1#Start Zookeeper Server
 .\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
 
@@ -24,6 +25,20 @@ kafka-console-producer.bat --broker-list localhost:9092 --topic testTopic
 
 Step5#Create Consumer
 kafka-console-consumer.bat --topic testTopic --bootstrap-server localhost:9092 --from-beginning
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 *Logger log = LoggerFactory.getlogger(Class_Name.class);
+* Link for Kafka Code: https://ide.geeksforgeeks.org/online-java-compiler/bdb7bb83-236a-4ec1-a172-c5751b9328f8
+
+//Kafka Producer...
+@Autowired
+KafkaTemplate templet;
+templet.send(topic_Name,message); //Send
+
+// Kafka Consumer.
+@KafkaListener(topic_Name, Group_Name)
+public void consume(String message)
+{
+print(message);
+}
+............................................
+* Kafka can handle the stream data:

@@ -1,41 +1,26 @@
 							~~~~~~~~~~~~# ALGORITHS & DS #~~~~~~~~~~~~~~~~~
 #Naive Approach: Each solution is generated first and trying every solution one by one and when all will finish only then result will obtain.
-#BackTracking Approach: It is more effecient than Naive,In this approach when an input fails to satisfy the solution then it will be rejected eg:Maize problem solving.
-**Integer to String Conversion:int a=10; String str=Integer.toString(a);// String.valueof(int); Reverse Way: int val=Integer.parseInt(str);
-**long to int conversion: Long l=100200300403; int t=(int)l; double d=3245.324; float f=(float)d;//It converts the double to float.
+#BackTracking Approach: It is more effecient than Naive, In this approach when an input fails to satisfy the solution then it will be rejected eg: Maize problem solving.
+**Integer to String Conversion: int a=10; String str=Integer.toString(a);// String.valueof(int); Reverse Way: int val=Integer.parseInt(str);
+**long to int conversion: Long l=100200300403; int t=(int)l; double d=3245.324; float f=(float)d; //It converts the double to float.
 *Sort the String: Arrays.sort(str); Note:It Sort the string str without returning the String.
 Inorder Tree Insertion: Link:https://ide.geeksforgeeks.org/3uG6Mxn8MJ
 ~~~~~~~~~~
 **Bitonic Array: *The element strictly increasing and after that strictly decreasing. e.g: {1, 8, 18, 5, 4, 2,0}; Link: https://ide.geeksforgeeks.org/Qnkn3TVelG
-*Find the no of Rotation in an array:  Link:https://ide.geeksforgeeks.org/online-java-compiler/2f51a325-84e4-4b45-a120-f79fc901cf20
+*Find the no of Rotation in an array: Link:https://ide.geeksforgeeks.org/online-java-compiler/2f51a325-84e4-4b45-a120-f79fc901cf20
 *{4,5,6,7,1,2,3} //min. criteria : (arr[mid]< (arr[mid+1]))&& (arr[mid]<arr[mid-1])  Link: https://ide.geeksforgeeks.or=g/obCGjMqpzR 
 				  //max. criteria :(arr[mid] > arr[mid+1]) && (arr[mid] >arr[mid-1]) 
 ** {1,8,10,11,17,7,5,3} If we have to check the existance of a no. then first we have to find the Bitonic point,then pass the half arrays in Binary Search operation. Link: https://ide.geeksforgeeks.org/cLwEKX1RKJ
 ~~~~~~~~~~
 *Longest Common Subsequence(DP): https://www.geeksforgeeks.org/longest-common-subsequence-dp-4/
 *Longest Consicutive Subsequence: We have to find out the elements (arr[t] -1) is not present in the array. Link: https://www.geeksforgeeks.org/longest-consecutive-subsequence/			 
-*smallestpositiveMissing from an Array//https://ide.geeksforgeeks.org/1696f093-8b68-430f-8ade-c6a29f8b066e
+*smallestpositiveMissing from an Array //https://ide.geeksforgeeks.org/1696f093-8b68-430f-8ade-c6a29f8b066e
 
 *Size of 2d Array: int rowSize=arr[0].length; int columnSize=arr.length;
-*Conversion of List into array-> int arr[]=new int[lst.size()]; lst.toArray(arr);
-*Arrays.sort(arr, 2, 8); Start index is included and end point is excluded.
-*lst.sort();/ lst.sort(new StandardComparator());
-Arrays.reverse(arr);  not working --> Collections.reverse(Arrays.asList(arr));
-**##Program to find the duplicates##?????????
-for(int t=0;t<n;t++)
-{
-	arr[t]+=arr[t]%n;
-}
-for(int i = 0; i < numRay.length; i++) 
-{
-   if (numRay[i] >= numRay.length * 2) 
-   {
-    System.out.println(i + " ");
-   }
-}
+
+*Determine whether a linkedList contains loop or not: https://ide.geeksforgeeks.org/online-java-compiler/44e8776f-bee5-4cc2-b332-fcaa4b3282dc
 *Reverse a LinkedList->: C:\Users\nitsu\Documents\Interview_Note
 *Dutch Flag Problem:	https://ide.geeksforgeeks.org/RIY3yu3Okz : Take two pointer, one wll handle 0&other will 2.
-*Determine whether a linkedList contains loop or not: https://ide.geeksforgeeks.org/online-java-compiler/44e8776f-bee5-4cc2-b332-fcaa4b3282dc
 **sort the Map according to its Value & Key. https://www.geeksforgeeks.org/sorting-a-hashmap-according-to-values/
 Link1:https://ide.geeksforgeeks.org/wO1IsS108y  Link2: https://ide.geeksforgeeks.org/online-java-compiler/b0ee1cb8-3140-4289-8795-ba368c53c1d2
 ** To find the kth or k largest elements in an array,to find the kth or k smallest element in array: We use natural Order PriorityQueue. 
@@ -45,16 +30,16 @@ for(int t=k;t<n;t++)-> if(pq.peek()<arr[t])->pq.poll(),pq.add(arr[i]); /////////
 **SubArray with sum equal to zero:
 **O(n)->Iterate through the array and continue sum each elements when the sum repeates itself then their exist zero sum.
 **Max. product in an Array: Link:https://ide.geeksforgeeks.org/online-java-compiler/ea5badc1-fa0a-49ce-a94d-ceb8ec9ef9e6
-Concept: 3 scenario will generate, arr[i]==0,arr[i]>0&arr[i]<0;, take two poingter(min_end, max_end);
+Concept: 3 scenario will generate, arr[i]==0, arr[i]>0 & arr[i]<0;, take two pointer(min_end, max_end);
 *Max. Sum of an Array: Link: https://ide.geeksforgeeks.org/online-java-compiler/3f24e7bd-4154-49d3-ac8e-9f3ab3e2f65d
-Check the prev_Sum is greater or less than the current index Element.
 *No. of ones In a binary Representation
 Link:https://ide.geeksforgeeks.org/c6385147-a675-4d9b-8717-5f22c0233477
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 **We can check the Odd && Even of a no. by doing the bit manupulation. If (no. & 1)==0 it is Even else It is odd. i.e 1east bit of even no. contains 0 while odd contains 1.
-**Find the max element in a Bitonic Array: 	https://ide.geeksforgeeks.org/ck10gSy167
-**Subsequence Sum problem(Sliding method): Here we have given a set of array & a value, we have to find the sequence of an array whose sum equal to the given value. Link: https://ide.geeksforgeeks.org/yYnflVFHfJ
+**Find the max. element in a Bitonic Array: 	https://ide.geeksforgeeks.org/ck10gSy167
+**Subsequence Sum problem (Sliding method): Here we have given a set of array & a value, we have to find the sequence of an array whose sum equal to the given value. Link: https://ide.geeksforgeeks.org/yYnflVFHfJ
 **SubSet Sum problem(using Dp & Recur.): We have given an array & particular value now we have to find the subset of an array whose sum equal to the value. Link: https://ide.geeksforgeeks.org/mIk93Srxb7 (DP) Link:https://ide.geeksforgeeks.org/online-java-compiler/55134d05-2fc1-4174-97ed-aba3ac060f55
+
 **Kth-Partition: We have to partition the array into kth equally part. Link: https://ide.geeksforgeeks.org/z03Hf0G1ab
 **3-partetion Problem: We have to partition the array equally in 3 part. Link: https://ide.geeksforgeeks.org/G5h79M0fEp	
 **FloodFill Problem: Here we have a maze and it contains "1". Find the path through which we can reach at the end(arr[m][n]). 
@@ -109,7 +94,7 @@ Link1:https://www.javatpoint.com/bubble-sort  Code_Link:https://ide.geeksforgeek
 **Given buildings & space we have arrange then in a Queue such that no two building are consecutives. Link: https://ide.geeksforgeeks.org/f67SQ0GdGL 
 **No of ways traverse the maje from top left to bottom right: Link:https://ide.geeksforgeeks.org/7ba0a73a-056d-4e64-a4f1-3c0e069c7a14
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-##Binary Search:Best Case Time Complexity of Binary Search: O(1), Average Case Time Complexity of Binary Search: O(logN), Worst Case Time Complexity of Binary Search: O(logN).
+##Binary Search: Best Case Time Complexity of Binary Search: O(1), Average Case Time Complexity of Binary Search: O(logN), Worst Case Time Complexity of Binary Search: O(logN).
 **Space Complexity of Binary Search: O(1) for iterative, O(logN) for recursive.
 **We cant apply binary search on a linked List.
 

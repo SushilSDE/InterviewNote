@@ -112,13 +112,13 @@ Diffrence btw ClassNotFound Exception & NoClassDefFoundError:
 *It is a checked Exception where as NoClassDefFoundError is an Error.
 *It occur when the class in not present inside the classPath, typically occurs when a class was present during the compilation of a program but is missing at runtime.
 
-~~~ClassNotFound Exception && NoClassDefFoundError~~~~ : ClassNot found Exception occur when we are trying to load a class with Class.forName("GFG") or loadClass() and it doesnt exist in the classPath.it is checked Exception. Link1: https://ide.geeksforgeeks.org/s4GROXrSCH 
+~~~ClassNotFound Exception && NoClassDefFoundError~~~~: ClassNot found Exception occur when we are trying to load a class with Class.forName("GFG") or loadClass() and it doesnt exist in the classPath.it is checked Exception. Link1: https://ide.geeksforgeeks.org/s4GROXrSCH 
 Link2: https://www.geeksforgeeks.org/classnotfoundexception-vs-noclassdeffounderror-java/
 NoClassDefFoundError:It occurs when the class is present at compile time but at runtime it doesnt present.This error occur from linkage Error.
 Class Loader: It is a part of JRE & it load the class in JVM when it is required for the class.
 ~~~ClassCastNotFound Exception:When we are trying to cast the object in subclass which is not an instance of that object. e.g: when Integer object trying to cast into String Object i.e: Object obj=new Integer.valueOf(23); String str=(String)obj;
 
-***Parallel Stream: Normally any java code has one stream of processing,where it is executed sequentially. Whereas by using parallel streams, we can divide the code into multiple streams that are executed in parallel core. Finally we merge the diffrent core results but the order of execution did not maintained.
+***Parallel Stream: Normally any java code has one stream of processing, where it is executed sequentially. Whereas by using parallel streams, we can divide the code into multiple streams that are executed in parallel core. Finally we merge the diffrent core results but the order of execution did not maintained.
 
 DeadLock Link1:https://ide.geeksforgeeks.org/UmwSxQhvdc, Link2:https://ide.geeksforgeeks.org/m7OtS4d8bH
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -154,7 +154,7 @@ While executing the statements it is beleive to be true if the satement is false
 *Nested Interface inside a class: Link1: https://ide.geeksforgeeks.org/ueAH9e6GSR ,** Nested Interface inside an Interface. Link2: https://ide.geeksforgeeks.org/sGs4ROqTQe, The nested interfaces should be public by default, any modification inside the interface gives an error.
 
 Define throw, throws & throwable keyword:
-throw: It is use to throw an exception from a methode or a peice of code. i.e: throw new RuntimeException();, throw new ArithematicException(); We can only use an unchecked exceptions.
+throw: It is use to throw an exception from a method or a peice of code. i.e: throw new RuntimeException();, throw new ArithematicException(); We can only use an unchecked exceptions.
 throws:It is use to handle the exception. We can handle the exception either using try catch block or by using throws keyword. It is use with the signature of method. We can use both checked & Unchecked Exception.
 throwable: parent class of Exception & Error. User can create its own throwable class.
 
