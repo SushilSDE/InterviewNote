@@ -5,7 +5,7 @@ S3:Simple Storage Service.
 *Value(This is simply the data,it is made of sequence of Byte),
 *Version Id(Important for versioning),
 *Metadata(It contains the information of Data)
-There are 6 type of Storage facilities available for S3:
+There are 6(Six) type of Storage facilities available for S3:
 
 1>S3 Standard:99.99% avaibility,99.9999999999% durability stored redundently across the multiple devices in multiple facilities.
 
