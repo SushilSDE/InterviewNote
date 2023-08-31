@@ -202,7 +202,7 @@ public void Test()
  assertEquals(value,Class_Name.function(x,y));
 }
 
-# Assertion Statements #
+#-> Assertion Statements <-#
 assertEquals();
 assertNotEquals();
 assertNotNull();
