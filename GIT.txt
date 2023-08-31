@@ -19,6 +19,8 @@ Step8: git status //this will give the "On branch master nothing to commit, work
 
 # git clone https://github.com/SushilSDE/InterviewNote.git
 
+From  to 8 will reflect the folder inside the Git Repository.
+
 ~~~~~~~~# Push files by making the clone folder of GitHub Repository and copying all files inside the clone one #~~~~~~
 *Link (OK Tested): https://www.geeksforgeeks.org/how-to-push-anything-to-github-using-git-bash/
 
