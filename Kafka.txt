@@ -42,3 +42,9 @@ print(message);
 }
 ............................................
 * Kafka can handle the stream data:
+*Dependency used for Kafka:
+
+<dependency>
+<artifactId>com.springframework.kafka</artifactId>
+<groupId>spring-kafka</groupId>
+</dependency>

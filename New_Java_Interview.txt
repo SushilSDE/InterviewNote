@@ -2,7 +2,7 @@
 
 public class Singleton
 {
-private Singleton
+private Singleton //Private Constructor.
 {}
 private static Singleton instance=null;
 public static Singleton getInstance()
@@ -20,13 +20,15 @@ public static Singleton getInstance()
 	return instance;
 }
 }
-e.g: Printer & Employee, dataBase, Multithreading.
-Note: Construction is private in Singleton so that it cant be accessed .
+
+e.g of Singleton: (Printer & Employee), dataBase, Multithreading.
+Note: Construction is private in Singleton so that it cant be accessed.
 Link: https://www.geeksforgeeks.org/singleton-design-pattern/
 ...............
 fail safe-> When their is no ConcurrentModification exceptions occur inside the iteration then it is fail Safe, it happens bcz the modification is done at the copy part, 
 fail fast: CopyOnWriteArrayList<> https://www.javatpoint.com/fail-fast-and-fail-safe-iterator-in-java#:~:text=The%20Fail%20fast%20iterator%20aborts,failures%20as%20much%20as%20possible.
-............... Object Level Lock Vs Class Level Lock (sycronized(this),sycronized(Class_Name.class))
+...............Object Level Lock Vs Class Level Lock (sycronized(this)->we can use this keyword also which indicate the current instance of the thread. or we can use the syncronized keyword at the method level also.
+,sycronized(Class_Name.class))
 Link:https://www.tutorialspoint.com/difference-between-object-level-lock-and-class-level-lock-in-java
 **Note: Class Level Lock: It is use when the user need to handle the Static method or Static Block of code, it is necessary to make class as a thread safe, bcz static can be accessed through the reference of class.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~# DI Example # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -35,8 +37,8 @@ In this scenario, we'll start by designing the notification system without adher
 The parent class is dependent on its child class, which provide a tight coupling. We can remove the dependency by using the DIP.Link1: https://ide.geeksforgeeks.org/online-java-compiler/c956ece1-58cd-4dd9-96b6-0a13e68baeb7
 
 # With Dependency Inversion Principle(S.O.L.I.D):
-Link2: https://ide.geeksforgeeks.org/online-java-compiler/94b53137-466a-4a08-92fb-5d76c9d5d06a
-As you can see the parent is dependent on the Interface ( Absatraction ) and the childs are implementing it and we can add many child without modifying the parent class. 
+Link2: https://ide.geeksforgeeks.org/online-java-compiler/1df73a25-233a-4f92-a756-9b5347f4301d
+As you can see the parent is dependent on the Interface ( Absatraction ) and the childs are implementing it and we can add many child without modifying the parent class.So in child class it provides the loose coupling. 
 
 *Daemon threads are useful for background supporting tasks such as garbage collection, releasing memory of unused objects and removing unwanted entries from the cache.
 
@@ -47,40 +49,50 @@ As you can see the parent is dependent on the Interface ( Absatraction ) and the
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~## Stream API Coding Questions ##~~~~~~~~~~~~~~~~~~~~~~~~~~
 *GroupingBy in Java8: https://codingnconcepts.com/java/streams-with-map-java-8/#using-collectorsgroupingby
+*Q> Sum of the age of users having the same name.
+lst.stream().collect(Collectors.groupingBy(Emplyee::getName,Collectors.summingInt(Emplyee::getSalary)))
+		    .entrySet().forEach(x->System.out.println(x.getKey()+"->"+x.getValue()));
 * Department who is provinding a heighest salary to their Employee. Link:https://ide.geeksforgeeks.org/online-java-compiler/021ade53-f4a5-4452-8aee-41508957ca35
 *Return the list of students which are having the same "Course1". 
-List<String> lstStr= map.entrySet().stream().filter(x->x.getValue().equals("Course1")).map(Map.Entry::getKey).collect(Collectors.toList());
-
+Link: https://ide.geeksforgeeks.org/online-java-compiler/f48fdb5d-f94a-467d-96b3-1ed8b8a91483
 *Name of Employee whose salary is >100;
 Code: List<String> lstName = lst.stream().filter(x->x.getSalary()>100).map(y->y.getName()).collect(Collectors.toList());
-
+*findFirst(); It is use to get the first element from the stream.
+Note: Correct working way of min(x,y)->firstElement-SecondElement,max(x,y)->x-y & sorted(x,y)->x-y//Ascending order, y-x->Descending Order:
 *Get the list of Character who is repeating itself in. Link:https://ide.geeksforgeeks.org/online-java-compiler/0066041d-68b9-479f-8f26-ee45ece5fdd9
 
-*Sum of the age of Employee: https://ide.geeksforgeeks.org/online-java-compiler/10bc99dc-a038-4c7a-ae01-a11efdd7ca72 
+*Sum of the age of Employee who has same Name: employees.stream().collect(Collectors.groupingBy(Employee::getName, Collectors.summingInt(Employee::getAge)));
+Link2: https://ide.geeksforgeeks.org/online-java-compiler/10bc99dc-a038-4c7a-ae01-a11efdd7ca72 
 
 *Find the Occurence of each char Link: https://ide.geeksforgeeks.org/online-java-compiler/43ac8340-6df0-4359-b14f-0dd39dac4558
 *Print char whose occuence is >1 && ==1 Link: https://ide.geeksforgeeks.org/online-java-compiler/2f48b966-3154-4ffa-9787-8d11791852b2
-*String ans = "HELLO";
-Arrays.stream(ans).collect(Collectors.groupingBy(Function.indentity(),LinkedHashMap::new,Collectors.counting()))
-			   .entrySet().stream().filter(x->x.getValue()>1).findFirst().get().getKey(); 
-// First repeating Character , if x.getValue()== 1 it will return first Non repeating.
+*Print the first Repeating Character of "HELLO". 
+Arrays.stream(ans).collect(Collectors.groupingBy(Function.indentity(),Collectors.counting()))
+			   .entrySet().stream().filter(x->x.getValue()>1).findFirst().map(x->x.getKey()).get(); 
+//It Will return First Non-Repeating if x.getValue()== 1. 
+*Operation on Employee Link:https://ide.geeksforgeeks.org/online-java-compiler/9e48a15f-6300-41b5-97cb-374016584125
+Note: mapToInt(value) inbuild the diffrent methods inside it like average, sum etc.
+**Stream API on interger Array(exception behaviour): You can use the .boxed() function to convert the stream into the integer stream.
+Link: https://ide.geeksforgeeks.org/online-java-compiler/a6818e50-8078-4320-92bc-70fbe1b83e43
 
-## Predicate(): test(), Consumer(): accept(), function(): apply(), Supplier(): get(); ##
-** How to generate a WAR(Web Archive) File from a Maven: JAr(Java Archeive)
+**Important Libraries: import java.util.stream.Collectors; import java.util.function.Function;
+## Predicate<Object>: test(), Consumer<Object>: accept(), function(InputObj,OutPutObj): apply(), Supplier(ReturnObj): get();
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Create a Global Exception Class:
 *@ExceptionHandler(ExceptionName.class) is a method level annotation which is use to handle a particular exception.
 *@ControllerAdvice annotation is use to handle the Exceptions globally , it is a class level annotation.
-*ResponsStatus
+*ResponseStatus
 *Thread Scheduler: It is use to assign CPU time to the thead. The more waiting thread will get more priority. 
 * Start()->Runnable(Waiting for CPU)->Running(Got CPU)-(Waiting,Blocked,Sleep)->Terminated.
 *Wait & notify() example Link: https://ide.geeksforgeeks.org/online-java-compiler/de8b0934-521e-4e56-9f6c-9b8100dcc709
 *ThreadObj.setDeamon(true); //It will basically set any thread as a deamon.
 ..................................................# Design Pattern #...............................................
 *Singleton Design Pattern: When a user want to share a single object btw the resources then it can use it, it produces a single object at a time. Application use: Multithreading, Database.
-*ProtoType Design Pattern: It suggest to make the copy of an existing object which is already initialized. Idea is to reduce the cost of crating object, it can be use where the object creation is costly or complex. E.g:
+*ProtoType Design Pattern: It suggest to make the copy of an existing object which is already initialized. Idea is to reduce the cost of creating object, it can be use where the object creation is costly or complex. E.g:
 .................................................................................................................
-*How to avoid the memory Leak: When ever the memory is filled with unused resources which are unable to clean by GC.
+*How to avoid the memory Leak: This occur when ever the memory is filled with unused resources which are unable to clean by GC.
 Impact: It reduce the system performace.
 1>Avoid the Static variables which remain live till the end of program.
 2>Avoid unnecessary use of reference Object.
@@ -104,8 +116,8 @@ public class GlobalException
 		return new ResponsEntity<>(,HttpStatus.InteralServerError);
 	}
 }
+Link: https://www.javaguides.net/2018/09/spring-boot-2-exception-handling-for-rest-apis.html#:~:text=We%20can%20handle%20exceptions%20in,status%20code%20and%20exception%20details.
 
-e.g:
 ~~~~~~~~~~~~~~~
 @GetMapping("/get/{id}")
 public ResponseEntity<User> getUser(@PathVariable Long id) {
@@ -116,18 +128,18 @@ public ResponseEntity<User> getUser(@PathVariable Long id) {
 ~~~~~~~~~~~~~~
 throw new CustomExceptionClassName(Arguments);
 It will automatically route the correct Exception Handler based on the CustomExceptionClassName, bcz @ExceptionHandler(CustomExceptionClassName.class) takes the custom exception class name as argument.  
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-*~~~~~# MongoDb Custom Query #~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~# MongoDb Custom Query #~~~~~~~~~~~~~
 Link:https://javatechonline.com/spring-boot-mongodb-query-examples/#:~:text=We%20can%20use%20the%20%40Query,instead%20of%20a%20JPA%20query.
 
 *~~~~~~# JPA Repository Custom Query #~~~~~~~~~~~~
+@Query(value="Select u from User u where u.name=?0") List<User> getUser(String name);
 Link:https://www.javaguides.net/2018/11/spring-data-jpa-creating-database-queries-using-query-annotation.html
 
 * Tutorial link:https://www.javaguides.net/p/spring-data-jpa-tutorial.html
-*War Plugin Configuration:<plugin>
-						  <groupId>org.apache.maven.plugins</groupId>
-						  <artifactId>maven-war-plugin</artifactId>
-						  </plugin>
+*War Plugin Configuration: <plugin>											
+						   <groupId>org.apache.maven.plugins</groupId>	<groupId>org.springframework.boot</groupId>
+						   <artifactId>maven-war-plugin</artifactId>	<artifactId>spring-boot-maven-plugin</artifactId>
+						   </plugin>
 *Basic Command of linux used in project:
 #"nohup java jar-jarName.jar &"// It will run the jar even after terminal is closed.
 #ps -ef | grep jarName.jar //To check the running status of a jar.
@@ -136,9 +148,10 @@ Link:https://www.javaguides.net/2018/11/spring-data-jpa-creating-database-querie
 *Agile methedology is the latest one, it break the requirment in the chunks(iteration) and assign it to team members,
 client can change or modify its requiment. Daily scrums call helps to track the progress & bugs inside the application.e.g is YouTube,FaceBook .
 
-Q>: Remove the special Character from the "$USH!L". Link:
+Q>: Remove the special Character from the "$USH!L". Link: str.replaceAll("[^a-zA-Z0-9\\s]","");
+Note: \\s matches whitespace characters (spaces, tabs, newlines).
 
-*Remove Embedded TomCatServer from Spring Boot application: 
+*Remove Embedded TomCatServer from Spring Boot application: Instead of embedded server you can use another server dependencies e.g: Jetty
 <exclusions>
       <exclusion>
          <groupId>org.springframework.boot</groupId>
@@ -153,11 +166,16 @@ str=str.append("de"); Comment: The "abc" value will be remain in the constant po
 *$ nohup(NO HANG-UP) java -jar example.jar & //It  will run the jar untill the terminal is closed.
 
 #AGILE Methodology: Planning->Design->Build(Coding)->Test->Maintain(Review)-> Deploy.
+*Concurrent Modification Exception-> Link: https://ide.geeksforgeeks.org/online-java-compiler/93b4f425-a99b-4a71-aabd-66ee11387647
+*How to handle the two DataBase in same application:???????????????????
+* Restriction inside the static Block & Method: Super, this & non static cant be use.
+*protected cant be use with the class.
 
-*How to handle the two DataBase in same application:
-
-
-
-
-
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~## Functional Interface ##~~~~~~~~~~~~~~~~~~~~~~~~~~
+*Function: Function(1,1), UninaryOperator(take single argument & return single argument with same type), BinaryOperator(take 2 argument of same type & return single argument of same type), BiFunction(Takes 2 argument & return 1 argument) 
+Link: https://ide.geeksforgeeks.org/online-java-compiler/070b39a3-d6ec-4462-80e4-02bdf1819e76
+Link2: https://ide.geeksforgeeks.org/online-java-compiler/094cc2ca-c32f-4b93-9789-891bc7d05270
+Link:https://www.geeksforgeeks.org/functional-interfaces-java/
+Note: Supplier dont have any BiFunction in it.
+*Echange Method:
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
