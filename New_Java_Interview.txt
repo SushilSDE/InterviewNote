@@ -178,4 +178,13 @@ Link2: https://ide.geeksforgeeks.org/online-java-compiler/094cc2ca-c32f-4b93-978
 Link:https://www.geeksforgeeks.org/functional-interfaces-java/
 Note: Supplier dont have any BiFunction in it.
 *Echange Method:
-##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~: Sorting Techique :~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*Selection Sort: Select the first element & Compare the rest with it.
+*Insertion Sort: Insert the new Element & Sort it from its tail.
+*Bubble Sort: always compare two consicutive values so that it can see as bubble drop.
+*Merge sort: It is an divide & Conquere Algorithm. Take seprate Left & Right Array to merge the array. Hint: Take condition as start<end; or(start==end)->return,(start<end)->rerturn;		
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~: Design Pattern (Creational) :~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*Factory Method desing Pattern: We have to create a parent (Interface or Abstarct Class) & the Parent interface will allow the child class to creat the object of Parent Class. Ex: send & Email, SmS. Here both sms & email can create the obj of notification.
+Hint: Same as the DI principle. E.g: valueOf();
+*
+*Optional<> class: It is a java8 feature which is use to avoid the NullPointerException. orElse(),isPresent(), ifPresent() is the method inside it. It can be use in the situation when the user is not sure about the o/p.

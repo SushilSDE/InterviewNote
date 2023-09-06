@@ -12,9 +12,9 @@ FROM employees e1
 WHERE 4 = (SELECT COUNT(DISTINCT salary) 
 FROM employees  e2 
 WHERE e2.salary <= e1.salary);
-*2nd max salary; SELECT DISTINCT salary from EMPLOYEE  ORDER BY DESC LIMIT 1 OFFSET 1;
-* Select Max(salary) from Employee where salary<(select Max(salary) from employee);
-*Nth max. salary: select min(salary) from employee order by salary DESC limit N;
+*2nd max. salary; SELECT DISTINCT salary from EMPLOYEE  ORDER BY DESC LIMIT 1 OFFSET 1;
+*Select Max(salary) from Employee where salary<(select Max(salary) from employee);
+*Nth max. salary: select salary from employee order by salary DESC Offset 3 limit 1;//Skip 3 starting elements & pick 1 starting element.
 
 *SELECT DEPT_ID, MAX(SALARY) FROM department GROUP BY DEPT_ID;//Maximum employee salary by department wise.
 *SELECT DISTINCT department_ID FROM employees;--> Use to select the diffrent Employee whose Id is diffrent.
@@ -35,7 +35,7 @@ Diffrent Types of Joins:Cross Join/Full Join, Left Join, Right Join, Inner Join 
 WHERE s1.student_id=s2.student_id AND s1.course_id != s2.course_id; Inner Join: SELECT  s1.student_id, s1.name FROM student s1 INNER JOIN student s2 ON s1.student_id=s2.student_id; 
 Note: With self Join we have to use Alliase. '
 
-*SELECT first_name, last_name, salary FROM employees WHERE employees.salary = (SELECT min_salary FROM jobs WHERE employees.job_id = jobs.job_id);//fetching emp Name who has min salary in its JobType.
+*SELECT first_name, last_name, salary FROM employees WHERE employees.salary = (SELECT min_salary FROM jobs WHERE employees.job_id = jobs.job_id);//fetching emp. Name who has min salary in its JobType.
 LIKE: 'a%' a patern/column which starts from a ,'IT%' a column which starts from "IT". '%a' pattern which end with a , '%a%' pattern contains a in between. '_a%' a found at 2nd position.
 
 *A FOREIGN KEY is a field in one table, that refers to the PRIMARY KEY in another table. To define a foreign key we have to define in the same table.

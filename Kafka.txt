@@ -28,23 +28,34 @@ kafka-console-consumer.bat --topic testTopic --bootstrap-server localhost:9092 -
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 *Logger log = LoggerFactory.getlogger(Class_Name.class);
 * Link for Kafka Code: https://ide.geeksforgeeks.org/online-java-compiler/bdb7bb83-236a-4ec1-a172-c5751b9328f8
-
+*Tutorial Link: https://www.javaguides.net/2022/06/spring-boot-apache-kafka-tutorial.html
 //Kafka Producer...
 @Autowired
 KafkaTemplate templet;
 templet.send(topic_Name,message); //Send
 
-// Kafka Consumer.
+//Kafka Consumer.
 @KafkaListener(topic_Name, Group_Name)
 public void consume(String message)
 {
 print(message);
 }
 ............................................
-* Kafka can handle the stream data:
+*Kafka can handle the stream data:
 *Dependency used for Kafka:
 
 <dependency>
 <artifactId>com.springframework.kafka</artifactId>
 <groupId>spring-kafka</groupId>
 </dependency>
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`||
+spring.kafka.consumer.bootstrap-servers: localhost:9092
+spring.kafka.consumer.group-id: group-id
+spring.kafka.consumer.auto-offset-reset: earliest
+spring.kafka.consumer.key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+spring.kafka.consumer.value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+spring.kafka.producer.bootstrap-servers: localhost:9092
+spring.kafka.producer.key-serializer: org.apache.kafka.common.serialization.StringSerializer
+spring.kafka.producer.value-serializer: org.apache.kafka.common.serialization.StringSerializer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`||
